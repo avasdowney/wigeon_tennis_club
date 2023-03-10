@@ -11,9 +11,9 @@ Cam, Anthony, Ava
 
 ## How to make changes
 1. In Git Bash navigate to working directory using ```cd {folder to enter}``` to change directory and ```ls``` to see the directory you are in
-1. Make sure you pull code before you start working so we do not overwrite changes using ```git pull https://github.com/avasdowney/wigeon_tennis_club.git```
+1. Make sure you pull code before you start working so we do not overwrite changes using ```git pull https://github.com/avasdowney/wigeon_tennis_club.git master``` or ```git pull origin master```
 1. Make the changes you want to make
-1. Pull code from the repo again using ```git pull https://github.com/avasdowney/wigeon_tennis_club.git```
+1. Pull code from the repo again using ```git pull https://github.com/avasdowney/wigeon_tennis_club.git master```
 1. Add your changes using ```git add .``` to add all modifications to local changelog
 1. Write a commit message brefily describing your changes using ```git commit -m "{message}"```
 1. Push your changes up into the GitHub repository using ```git push```. If you refresh the GitHub page your changes should be visible in your branch now.
