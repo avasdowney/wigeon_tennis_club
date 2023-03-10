@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Member, New
+
+admin.site.register(Member)
+admin.site.register(New)
