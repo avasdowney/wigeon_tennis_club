@@ -18,6 +18,7 @@ Cam, Anthony, Ava
 1. Write a commit message brefily describing your changes using ```git commit -m "{message}"```
 1. Push your changes up into the GitHub repository using ```git push```. If you refresh the GitHub page your changes should be visible in your branch now.
 
+<!--
 ## Development Things
 1. Run server using ```python3 manage.py runserver``` in base directory redirects to http://localhost:8000/polls/
 1. Test server using ```python3 manage.py test polls``` in base directory
@@ -26,4 +27,4 @@ Cam, Anthony, Ava
 ### admin
 1. Admin page: http://localhost:8000/admin/
 1. Create admin profile: ```python3 manage.py createsuperuser```
-
+-->
