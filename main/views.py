@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 
-
 def index(request):
-    return HttpResponse("Login Page")
+    return HttpResponse("")
 
 def login(request):
     return HttpResponse("User Login")
