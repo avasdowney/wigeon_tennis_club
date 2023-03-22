@@ -11,3 +11,6 @@ def add_news_view(request):
     form = AddNewsForm()
     context = {'form': form}
     return render(request, 'news/add_news.html', context)
+
+def news_view(request):
+    return render(request, 'news/news_home.html')
