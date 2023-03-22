@@ -21,10 +21,6 @@ class Member(models.Model):
         choices = account_standing_choices
         )
 
-class New(models.Model):
-    text_content = models.TextField()
-    image = models.ImageField()
-
     
 
  

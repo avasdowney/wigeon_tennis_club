@@ -21,8 +21,5 @@ Cam, Anthony, Ava
 ## Development Things
 1. Run server using ```python3 manage.py runserver``` in base directory redirects to http://localhost:8000/
 1. Test server using ```python3 manage.py test project``` in base directory
-1. If running from new clone of the repo run ```python3 manage.py migrate``` to instantiate database
-
-### admin
-1. Admin page: http://localhost:8000/admin/
+1. If running from new clone of the repo run ```python3 manage.py makemigrations``` then ```python3 manage.py migrate``` to instantiate database
 1. Create admin profile: ```python3 manage.py createsuperuser```
