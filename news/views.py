@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .forms import NewsForm
+from .forms import AddNewsForm
 
 
-def news_view(request):
+def add_news_view(request):
     if request.method == 'POST':
-        form = NewsForm(request.POST)
+        form = AddNewsForm(request.POST)
         if form.is_valid():
             form.save()
             return render(request, 'news/success.html')
-    form = NewsForm()
+    form = AddNewsForm()
     context = {'form': form}
-    return render(request, 'news/news.html', context)
+    return render(request, 'news/add_news.html', context)

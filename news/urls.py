@@ -4,5 +4,5 @@ from news import views as news_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', news_views.news_view, name='news'),
+    path('add_news/', add_news_views.add_news_view, name='add_news'),
 ]

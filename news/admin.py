@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 from django.contrib import admin
-from .models import News
+from .models import AddNews
 
-admin.site.register(News)
+admin.site.register(AddNews)
