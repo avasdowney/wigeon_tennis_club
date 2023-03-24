@@ -4,3 +4,7 @@ input[type=text], input[type=email], textarea {
     margin: 8px 0;
     display: inline-block;
    }
+
+body {
+    background-color: #adffa9;
+}
