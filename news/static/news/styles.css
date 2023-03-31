@@ -8,3 +8,13 @@ input[type=text], input[type=email], textarea {
 body {
     background-color: #adffa9;
 }
+
+.main {
+    text-align: center;
+}
+
+.nav {
+    line-height: 50px;
+    margin-right: 85%;
+    border: 1px solid red;
+}
