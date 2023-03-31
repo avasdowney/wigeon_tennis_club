@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import MembersForm
 
-def members_view(request):
+def index(request):
     if request.method == 'POST':
         form = MembersForm(request.POST)
         if form.is_valid():
