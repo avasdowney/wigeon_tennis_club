@@ -4,11 +4,29 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<style>
+  body {
+    background-color: #adffa9;
+  }
+  h2 {
+    text-align: center;
+  }
+  div {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+  }
+</style>
 <h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
-<button onclick="location.href='/members/'"> Become a Member </button>
+<div>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log In</button>
+  </form>
+  <br>
+  <button onclick="location.href='/members/'"> Become a Member </button>
+</div>
 {% endblock %}
