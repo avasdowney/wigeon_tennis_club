@@ -1,12 +1,13 @@
 from django.forms import ModelForm
-from .models import courtReservationForm
-
+from .models import *
 
 class ReservationForm(ModelForm):
     class Meta:
         model = courtReservationForm
         fields = '__all__'
         labels = {
+            'courtNumber' : ('Court Number'),
+            "courtTime" : ('Court Time'),
             'guest1EMail' : ("Guest 1's Email Address"),
             'guest1FName': ("Guest 1's First Name"),
             'guest1LName': ("Guest 1's Last Name"),
@@ -15,5 +16,9 @@ class ReservationForm(ModelForm):
             'guest2LName': ("Guest 1's Last Name"),
             'guest3EMail' : ("Guest 3's Email Address"),
             'guest3FName' : ("Guest 3's First Name"),
-            'guest3LName': ("Guest 3's Last Name")
+            'guest3LName': ("Guest 3's Last Name"),
+            'guest4EMail' : ("Guest 4's Email Address"),
+            'guest4FName' : ("Guest 4's First Name"),
+            'guest4LName': ("Guest 4's Last Name")
         }
+
