@@ -1,10 +1,15 @@
 {% load static %}
+{% load custom_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 
-
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
- </form>
+{% if request.user|has_group:"admin" %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+{% else %}
+    <p> How did you get here! </p>
+    <button onclick="location.href='/news/'"> Back to Safety </button>
+{% endif %}
  
