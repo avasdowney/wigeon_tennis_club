@@ -2,10 +2,15 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'courts/reservationform.css' %}">
 
-<h1>Court Reservation Form</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
- </form>
+{% if user.is_authenticated %}
+    <h1>Court Reservation Form</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+{% else %}
+    <p>You are not logged in</p>
+    <button onclick="location.href='/login/'">Log In</button>
+{% endif %}
  
