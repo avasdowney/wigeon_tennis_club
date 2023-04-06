@@ -8,10 +8,7 @@ from django.contrib import admin
 class AddNews(models.Model):
     title = models.TextField(max_length=100, primary_key=True)
     story = models.TextField()
-    date = models.DateField(max_length=8)
-
-    def __str__(self):
-        return self.title, self.story
+    date = models.DateField(max_length=8, auto_now_add=True)
 
     def base(request):
         # grab all stories from database:
