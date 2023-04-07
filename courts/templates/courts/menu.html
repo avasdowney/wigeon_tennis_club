@@ -3,124 +3,134 @@
 <link rel="stylesheet" type="text/css" href="{% static 'courts/menu.css' %}">
 
 <h1>Court Reservation Menu</h1>
-<div class = "dateHeaders">
-   <div>Day 1</div>
-   <div>Day 2</div>
-   <div>Day 3</div>
-   <div>Day 4</div>
-   <div>Day 5</div>
-   <div>Day 6</div>
-   <div>Day 7</div>
+<div class="nav">
+   <ul class="navul">
+       <li><a href="/news/">Directory</a></li>
+       <li><a href="/news/">News</a></li>
+       <li><a href="/courts/">Court Reservation</a></li>
+       <li><a href="/news/">Account</a></li>
+     </ul>
 </div>
-
-<div class = "courtNumbers">
-    <table>
-        <tr>
-            <th></th>
-            <th>Court 1</th>
-            <th>Court 2</th>
-            <th>Court 3</th>
-            <th>Court 4</th>
-            <th>Court 5</th>
-            <th>Court 6</th>
-            <th>Court 7</th>
-            <th>Court 8</th>
-            <th>Court 9</th>
-            <th>Court 10</th>
-            <th>Court 11</th>
-            <th>Court 12</th>
-        </tr>
-        <tr style="height: 100px">
-            <td>08:00 - 09:30</td>
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-           <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
-        </tr>
-        <tr style="height: 100px">
-            <td>09:30 - 11:00</td>
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
-         </tr>
-         <tr style="height: 100px">
-            <td>11:00 - 12:30</td>
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
-         </tr>
-         <tr style="height: 100px">
-            <td>12:30 - 02:00</td>
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
-          </tr>
-          <tr style="height: 100px">
-            <td>02:00 - 03:30</td>
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-            <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
-         </tr>
-         <tr style="height: 100px">
-            <td>03:30 - 05:00</td>
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
-             <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
-          </tr>
-          
-    </table>
-    
+<div class="main">
+   <div class = "dateHeaders">
+      <div>Day 1</div>
+      <div>Day 2</div>
+      <div>Day 3</div>
+      <div>Day 4</div>
+      <div>Day 5</div>
+      <div>Day 6</div>
+      <div>Day 7</div>
+   </div>
+   
+   <div class = "courtNumbers">
+       <table>
+           <tr>
+               <th></th>
+               <th>Court 1</th>
+               <th>Court 2</th>
+               <th>Court 3</th>
+               <th>Court 4</th>
+               <th>Court 5</th>
+               <th>Court 6</th>
+               <th>Court 7</th>
+               <th>Court 8</th>
+               <th>Court 9</th>
+               <th>Court 10</th>
+               <th>Court 11</th>
+               <th>Court 12</th>
+           </tr>
+           <tr style="height: 100px">
+               <td>08:00 - 09:30</td>
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+              <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
+           </tr>
+           <tr style="height: 100px">
+               <td>09:30 - 11:00</td>
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
+            </tr>
+            <tr style="height: 100px">
+               <td>11:00 - 12:30</td>
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
+            </tr>
+            <tr style="height: 100px">
+               <td>12:30 - 02:00</td>
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
+             </tr>
+             <tr style="height: 100px">
+               <td>02:00 - 03:30</td>
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+               <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
+            </tr>
+            <tr style="height: 100px">
+               <td>03:30 - 05:00</td>
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td> 
+                <td><button onclick="location.href='/courts/reservationform'">Reserve Court</button></td>  
+             </tr>
+             
+       </table>
+       
+   </div>
 </div>
