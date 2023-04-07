@@ -27,4 +27,5 @@ urlpatterns = [
     path('add_news/', news_view.add_news_view, name='add_news'),
     path('members/', include('members.urls')),
     path('courts/', include('courts.urls')),
+    path('account/', include('account.urls')),
 ]
