@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "news",
     "members",
     "courts",
+    "account",
 ]
 
 MIDDLEWARE = [
