@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
 from news import views as news_view
-from members import views as members_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +24,6 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='news'),
     path('news/', news_view.NewsView.as_view(), name='news'),
     path('add_news/', news_view.add_news_view, name='add_news'),
-    path('signup/', include('members.urls')),
     path('courts/', include('courts.urls')),
     path('account/', include('account.urls')),
 ]
