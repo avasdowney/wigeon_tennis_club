@@ -1,7 +1,9 @@
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from .models import CustomUser
  
 class SignUpForm(UserCreationForm):
+    age = forms.IntegerField()
     class Meta:
-        model = User
-        fields = ('username', 'password1', 'password2', )
+        model = CustomUser
+        fields = ('username', 'age', 'password1', 'password2', )

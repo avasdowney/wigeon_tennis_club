@@ -1,5 +1,6 @@
 from .forms import SignUpForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
  
 def signup(request):
     if request.method == 'POST':
@@ -16,7 +17,7 @@ def signup(request):
             login(request, user)
 
             # redirect user to home page
-            return redirect('home')
+            return redirect('news')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
