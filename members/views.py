@@ -1,5 +1,8 @@
 from .forms import SignUpForm
 from django.shortcuts import render
+
+def update_user_data(user):
+    Profile.objects.update_or_create(user=user, defaults={'mob': user.profile.mob},)
  
 def signup(request):
     if request.method == 'POST':
