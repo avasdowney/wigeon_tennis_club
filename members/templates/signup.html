@@ -1,17 +1,27 @@
-<h2>Sign up</h2>
- <form method="post">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'members/styles.css' %}">
+
+<div class="top-style">
+  <h1> Wigeon Tennis Club</h1>
+</div>
+
+<div class="main-format">
+  <h2>Sign up</h2>
+  <form method="post">
     {% csrf_token %}
     {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
+    <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+      {% if field.help_text %}
+      <small style="color: grey">{{ field.help_text }}</small>
+      {% endif %}
+      {% for error in field.errors %}
+    <p style="color: red">{{ error }}</p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    </p>
+    {% endfor %}
+    <button type="submit">Sign up</button> &nbsp;
+    <button onclick="location.href='/logout/'">Cancel</button>
   </form>
+</div>
