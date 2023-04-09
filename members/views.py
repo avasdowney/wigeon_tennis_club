@@ -1,21 +1,32 @@
+from .forms import SignUpForm
 from django.shortcuts import render
-from .forms import MembersForm
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views import generic
+ 
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()  
+            # load the profile instance created by the signal
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
 
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "members/signup.html"
+            # login user after signing up
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+
+            # redirect user to home page
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
 def index(request):
     if request.method == 'POST':
-        form = MembersForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             return render(request, 'members/success.html')
-    form = MembersForm()
+    form = SignUpForm()
     context = {'form': form}
     return render(request, 'members/members.html', context)
-
