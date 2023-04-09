@@ -9,5 +9,5 @@ class SignUpForm(UserCreationForm):
     phone = forms.IntegerField()
     class Meta:
         model = User
-        fields = ('username', 'email', 'phone', 'password1', 'password2', )
+        fields = ('first_name', 'last_name', 'email', 'phone', 'username', 'password1', 'password2', )
         labels = {'phone': 'Mobile Number',}

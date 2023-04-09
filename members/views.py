@@ -2,7 +2,7 @@ from .forms import SignUpForm
 from django.shortcuts import render
 
 def update_user_data(user):
-    Profile.objects.update_or_create(user=user, defaults={'mob': user.profile.mob},)
+    Profile.objects.update_or_create(user=user, defaults={'phone': user.profile.phone},)
  
 def signup(request):
     if request.method == 'POST':
@@ -32,4 +32,4 @@ def index(request):
             return render(request, 'members/success.html')
     form = SignUpForm()
     context = {'form': form}
-    return render(request, 'members/members.html', context)
+    return render(request, 'members/signup.html', context)
