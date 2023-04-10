@@ -1,0 +1,16 @@
+{% load static %}
+<h1>Admin Account</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
+<div class="nav">
+    <ul class="navul">
+        <li><a href="/directory/">Directory</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/courts/">Court Reservation</a></li>
+        <li><a href="/account/adminProfile">Admin Account</a></li>
+      </ul>
+</div>
+
+<div class="adminButtons">
+    <button onclick="location.href='/add_news/'">Add News Story</button>
+    <button onclick="location.href='/directory/'">View Members</button>
+</div>

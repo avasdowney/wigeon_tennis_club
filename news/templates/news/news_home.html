@@ -33,7 +33,11 @@
         <li><a href="/directory/">Directory</a></li>
         <li><a href="/news/">News</a></li>
         <li><a href="/courts/">Court Reservation</a></li>
-        <li><a href="/account/">Account</a></li>
+        {% if request.user|has_group:"admin" %}
+            <li><a href="/account/adminProfile">Admin Account</a></li>
+        {% else %}
+            <li><a href="/account/">Account</a></li>
+        {% endif %}
       </ul>
 </div>
 {% else %}

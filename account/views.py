@@ -14,3 +14,9 @@ def billing(request):
     form = BillingForm()
     context = {'form': form}
     return render(request, 'account/bills.html', context)
+
+def editProfile(request):
+    return render(request, 'account/editProfile.html')
+
+def adminProfile(request):
+    return render(request, 'account/adminProfile.html')
