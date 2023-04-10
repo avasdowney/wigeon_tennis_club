@@ -1,6 +1,9 @@
 from .forms import SignUpForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.views import generic
+from django.utils import timezone
+from .models import CustomUser
  
 def signup(request):
     if request.method == 'POST':
@@ -21,6 +24,14 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+class DirectoryView(generic.ListView):
+    model = CustomUser
+    context_object_name = 'user_list'
+    template_name = 'members/directory.html'
+
+    def get_queryset(self):
+        return CustomUser.objects.all()
 
 def index(request):
     return render(request, 'signup.html', context)
