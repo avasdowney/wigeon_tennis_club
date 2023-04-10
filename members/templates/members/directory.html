@@ -1,0 +1,16 @@
+<h1> Wigeon Tennis Club Directory </h1>
+    
+    <!-- Display members from database -->
+    {% block content %}
+        {% if user_list %}
+            {% for user in user_list %}
+                <h3>{{ user.first_name }} {{ user.last_name }} </h3>
+                <p>Age: {{user.age }}</p>
+                <p>Phone Number: {{user.phone }}</p>
+                <p>Email Address: {{user.email }}</p>
+                <p>Address: {{user.address }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No users are available.</p>
+        {% endif %}
+    {% endblock %}
