@@ -2,18 +2,19 @@
 {% load custom_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 
+{% if user.is_authenticated %}
 <button onclick="location.href='/logout/'">Logout</button>
 <!-- Make only admin able to see add news button. Code also added to project/settings.py 
     and news/templatetags/custom_tags.py to work. -->
 {% if request.user|has_group:"admin" %}
 <button onclick="location.href='/add_news/'">Add News Story</button>
 {% endif %}
-    
+
 <div class="main">
     <h1> News Homepage </h1>
-    <p>Welcome to the news page, {{ user.username }}. Stay up to date with our weely news articles!</p>
+    <p>Welcome to the news page, {{ user.username }}. Stay up to date with our weekly news articles!</p>
     
-    <!-- Display news stories from dataabse reverse chronologically -->
+    <!-- Display news stories from database reverse chronologically -->
     {% block content %}
         {% if news_list %}
             {% for story in news_list %}
@@ -23,6 +24,8 @@
         {% else %}
             <p>No stories are available.</p>
         {% endif %}
+    {% endblock %}
+    
 </div>
 
 <div class="nav">
@@ -33,4 +36,7 @@
         <li><a href="/news/">Account</a></li>
       </ul>
 </div>
-{% endblock %}
+{% else %}
+    <p>You are not logged in</p>
+    <button onclick="location.href='/login/'">Log In</button>
+{% endif %}

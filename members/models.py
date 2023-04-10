@@ -1,22 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
-
-account_standing_choices=(
-       ("GS", "Good Standing"),
-       ("FD", "Fees Due"),
-       ("FOD", "Fees Overdue"),
-    )
-
-class CreateMember(models.Model):
-    email_address = models.EmailField(max_length=254, primary_key=True)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=10)
-    address = models.CharField(max_length=100)
-    age = models.IntegerField()
-    member_id = models.IntegerField()
-    account_standing = models.CharField(
-        max_length = 20,
-        choices = account_standing_choices
-        )
+class CustomUser(AbstractUser):
+    age = models.IntegerField(null=True)
+    address = models.CharField(max_length=200, null=True)
+    phone = models.IntegerField(null=True)
+    is_public = models.BooleanField(default=False)
+    did_pay = models.BooleanField(default=False)
