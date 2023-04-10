@@ -1,2 +1,30 @@
-<body>Hello Test</body>
-<button onclick="location.href='/account/bills'">Pay Your Bills</button>
+{% load static %}
+{% load custom_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
+<h1>Account Info</h1>
+<div class="nav">
+    <ul class="navul">
+        <li><a href="/directory/">Directory</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/courts/">Court Reservation</a></li>
+        {% if request.user|has_group:"admin" %}
+            <li><a href="/account/adminProfile">Admin Account</a></li>
+        {% else %}
+            <li><a href="/account/">Account</a></li>
+        {% endif %}
+      </ul>
+</div>
+
+<div class="profilePic">
+    <img src="{% static '/account/defaultProfilePic.jpg' %}" alt="Default Profile">
+</div>
+
+<div class="profileButtons">
+    <button onclick="location.href='/account/'">My Reservations</button>
+    <button onclick="location.href='/account/bills'">Pay Your Bills</button>
+    <button onclick="location.href='/account/editProfile'">Edit Profile</button>
+</div>
+
+<div class="logout">
+    <button onclick="location.href='/logout/'">Log Out</button>
+</div>
