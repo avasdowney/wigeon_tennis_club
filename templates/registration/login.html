@@ -6,12 +6,27 @@
 {% block content %}
 <style>
   body {
-    background-color: #adffa9;
+    background-color: #70B699;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
   }
   h2 {
     text-align: center;
   }
-  div {
+  img {
+    width: 20%;
+    height: auto;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .form {
+    background-color: #EAE6DD;
     text-align: center;
     margin: auto;
     width: 50%;
@@ -19,8 +34,13 @@
     padding: 10px;
   }
 </style>
+
 <h2>Log In</h2>
 <div>
+  <img src="https://media.discordapp.net/attachments/1082883347417673828/1095083425699987486/WigeonDiscordLogo.png?width=2046&height=975" alt="WigeonTennisClubLogo">
+</div>
+<br>
+<div class="form">
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

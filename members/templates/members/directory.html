@@ -1,6 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'members/styles.css' %}">
+
 <h1> Wigeon Tennis Club Directory </h1>
-    
-    <!-- Display members from database -->
+
+<!-- Display members from database -->
+<div class="main">
     {% block content %}
         {% if user_list %}
             {% for user in user_list %}
@@ -14,3 +18,14 @@
             <p>No users are available.</p>
         {% endif %}
     {% endblock %}
+</div>
+
+<!-- navbar -->
+<div class="nav">
+    <ul class="navul">
+        <li><a href="/directory/">Directory</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/courts/">Court Reservation</a></li>
+        <li><a href="/account/">Account</a></li>
+    </ul>
+</div>
