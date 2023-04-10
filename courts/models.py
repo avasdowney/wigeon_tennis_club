@@ -28,12 +28,12 @@ timeBlocks=(
 class courtReservationForm(models.Model):
     courtNumber = models.IntegerField(
         choices = courtNumber,
-        blank = False
+        blank = False,
     )
     courtTime = models.CharField(
         max_length = 20,
         choices = timeBlocks,
-        blank = False
+        blank = False,
     )
     guest1EMail = models.EmailField(max_length=254, blank = True)
     guest1FName = models.CharField(max_length=100, blank = True)
@@ -48,7 +48,4 @@ class courtReservationForm(models.Model):
     guest4FName = models.CharField(max_length=100, blank = True)
     guest4LName = models.CharField(max_length=100, blank = True)
 
-def c1t1():
-    courtReservationForm.courtNumber=1
-    courtReservationForm.courtTime=1
 
