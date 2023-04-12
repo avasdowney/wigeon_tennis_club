@@ -20,3 +20,6 @@ def editProfile(request):
 
 def adminProfile(request):
     return render(request, 'account/adminProfile.html')
+
+def treasurerProfile(request):
+    return render(request, 'account/treasurerProfile.html')

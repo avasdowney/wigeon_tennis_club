@@ -12,3 +12,4 @@ class Bill(models.Model):
     zipCode = models.IntegerField(validators = [MinValueValidator(10000), MaxValueValidator(99999)], blank = False)
     ammountCharge= models.DecimalField(decimal_places = 2, max_digits = 6, blank=False)
 
+

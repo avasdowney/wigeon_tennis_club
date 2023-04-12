@@ -1,10 +1,8 @@
 {% load static %}
 {% load custom_tags %}
-<link rel="stylesheet" type="text/css" href="{% static 'members/styles.css' %}">
+<h1>Treasurer Account</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
 
-<h1> Wigeon Tennis Club Directory </h1>
-
-<!-- Display members from database -->
 <div class="main">
     {% block content %}
         {% if user_list %}
@@ -21,18 +19,11 @@
     {% endblock %}
 </div>
 
-<!-- navbar -->
 <div class="nav">
     <ul class="navul">
         <li><a href="/directory/">Directory</a></li>
         <li><a href="/news/">News</a></li>
         <li><a href="/courts/">Court Reservation</a></li>
-        {% if request.user|has_group:"admin" %}
-            <li><a href="/account/adminProfile">Admin Account</a></li>
-        {% elif request.user|has_group:"treasurer" %}
-            <li><a href="/account/treasurerProfile">Treasurer Account</a></li>
-        {% else %}
-            <li><a href="/account/">Account</a></li>
-        {% endif %}
+        <li><a href="/account/treasurerProfile">Treasurer Account</a></li>
       </ul>
 </div>
