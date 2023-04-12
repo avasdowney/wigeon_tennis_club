@@ -2,18 +2,26 @@
 {% load custom_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'members/styles.css' %}">
 
-<h1> Wigeon Tennis Club Directory </h1>
+{% if user.is_authenticated %}
+<div style="position: fixed;">
+    <button onclick="location.href='/logout/'">Logout</button>
+</div>
 
 <!-- Display members from database -->
 <div class="main">
+    <div class="top-style">
+        <h1> Wigeon Tennis Club Directory </h1>
+    </div>
     {% block content %}
         {% if user_list %}
             {% for user in user_list %}
-                <h3>{{ user.first_name }} {{ user.last_name }} </h3>
-                <p>Age: {{user.age }}</p>
-                <p>Phone Number: {{user.phone }}</p>
-                <p>Email Address: {{user.email }}</p>
-                <p>Address: {{user.address }}</p>
+                <div class="info">
+                    <h3>{{ user.first_name }} {{ user.last_name }} </h3>
+                    <p>Age: {{user.age }}</p>
+                    <p>Phone Number: {{user.phone }}</p>
+                    <p>Email Address: {{user.email }}</p>
+                    <p>Address: {{user.address }}</p>
+                </div>
             {% endfor %}
         {% else %}
             <p>No users are available.</p>
@@ -34,3 +42,7 @@
         {% endif %}
     </ul>
 </div>
+{% else %}
+    <p>You are not logged in</p>
+    <button onclick="location.href='/login/'">Log In</button>
+{% endif %}

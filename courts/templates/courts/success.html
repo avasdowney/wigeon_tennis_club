@@ -1,6 +1,7 @@
 {% if user.is_authenticated %}
     <h1>Reservation Success</h1>
     <p>Your court reservation has successfully processed.</p>
+    <button onclick="location.href='/news/'"> Back to News </button>
 {% else %}
   <p>You are not logged in</p>
   <button onclick="location.href='/login/'">Log In</button>

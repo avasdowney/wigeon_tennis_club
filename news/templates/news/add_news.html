@@ -2,11 +2,18 @@
 {% load custom_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 
+<title>{% block title %}Add News{% endblock %}</title>
 
 {% if request.user|has_group:"admin" %}
+<h1> Add News Story </h1>
     <form action="" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.media }}
+        <p>Title</p>
+        {{ form.title }}
+        <p>Story</p>
+        {{ form.story }} <br><br>
+        <button onclick="location.href='/news/'">Cancel</button> &nbsp;
         <input type="submit" value="Submit">
     </form>
 {% else %}
