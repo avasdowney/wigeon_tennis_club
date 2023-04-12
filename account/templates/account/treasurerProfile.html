@@ -1,0 +1,29 @@
+{% load static %}
+{% load custom_tags %}
+<h1>Treasurer Account</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
+
+<div class="main">
+    {% block content %}
+        {% if user_list %}
+            {% for user in user_list %}
+                <h3>{{ user.first_name }} {{ user.last_name }} </h3>
+                <p>Age: {{user.age }}</p>
+                <p>Phone Number: {{user.phone }}</p>
+                <p>Email Address: {{user.email }}</p>
+                <p>Address: {{user.address }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No users are available.</p>
+        {% endif %}
+    {% endblock %}
+</div>
+
+<div class="nav">
+    <ul class="navul">
+        <li><a href="/directory/">Directory</a></li>
+        <li><a href="/news/">News</a></li>
+        <li><a href="/courts/">Court Reservation</a></li>
+        <li><a href="/account/treasurerProfile">Treasurer Account</a></li>
+      </ul>
+</div>

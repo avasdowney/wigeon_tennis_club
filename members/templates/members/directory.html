@@ -37,10 +37,12 @@
         <li><a href="/courts/">Court Reservation</a></li>
         {% if request.user|has_group:"admin" %}
             <li><a href="/account/adminProfile">Admin Account</a></li>
+        {% elif request.user|has_group:"treasurer" %}
+            <li><a href="/account/treasurerProfile">Treasurer Account</a></li>
         {% else %}
             <li><a href="/account/">Account</a></li>
         {% endif %}
-    </ul>
+      </ul>
 </div>
 {% else %}
     <p>You are not logged in</p>

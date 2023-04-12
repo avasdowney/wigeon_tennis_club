@@ -6,14 +6,16 @@
 <h1>Court Reservation Menu</h1>
 <div class="nav">
    <ul class="navul">
-       <li><a href="/news/">Directory</a></li>
+       <li><a href="/directory/">Directory</a></li>
        <li><a href="/news/">News</a></li>
        <li><a href="/courts/">Court Reservation</a></li>
        {% if request.user|has_group:"admin" %}
-         <li><a href="/account/adminProfile">Admin Account</a></li>
-      {% else %}
-         <li><a href="/account/">Account</a></li>
-      {% endif %}
+           <li><a href="/account/adminProfile">Admin Account</a></li>
+       {% elif request.user|has_group:"treasurer" %}
+           <li><a href="/account/treasurerProfile">Treasurer Account</a></li>
+       {% else %}
+           <li><a href="/account/">Account</a></li>
+       {% endif %}
      </ul>
 </div>
 <div class="main">
