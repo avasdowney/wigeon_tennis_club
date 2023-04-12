@@ -1,27 +1,42 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'members/styles.css' %}">
 
+<title>{% block title %}Signup{% endblock %}</title>
+
 <div class="top-style">
   <h1> Wigeon Tennis Club</h1>
 </div>
 
 <div class="main-format">
   <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-    <p>
-      {{ field.label_tag }}<br>
-      {{ field }}
-      {% if field.help_text %}
-      <small style="color: grey">{{ field.help_text }}</small>
-      {% endif %}
-      {% for error in field.errors %}
-    <p style="color: red">{{ error }}</p>
-    {% endfor %}
-    </p>
-    {% endfor %}
-    <button type="submit">Sign up</button> &nbsp;
-    <button onclick="location.href='/logout/'">Cancel</button>
-  </form>
+  <div class="row">
+    <div class="column">
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+          {{ field.label_tag }}<br>
+          {{ field }}
+          {% if field.help_text %}
+          <br>
+          <small style="color: #6f7e85;">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        </p>
+        {% endfor %}
+        <button type="submit">Sign up</button> &nbsp;
+        <button onclick="location.href='/logout/'">Cancel</button>
+      </form>
+    </div>
+    <div class="column">
+      <img src="https://media.discordapp.net/attachments/1082883347417673828/1095083425699987486/WigeonDiscordLogo.png?width=2046&height=975" alt="WigeonTennisClubLogo">
+      <!-- Chat GPT generated intro -->
+      <br><br><br>
+      <div class="welcome">
+        <p> Welcome to Wigeon Tennis Club, located in the heart of Hartford, CT! Our club offers state-of-the-art tennis facilities, professional coaching, and a welcoming community of players of all skill levels. Whether you are a seasoned pro or just starting out, we have programs and events that cater to your needs. Our courts are well-maintained, and our facilities offer amenities such as showers and a lounge area. Join us for a friendly match or a rigorous training session, and experience the joy of tennis at Wigeon Tennis Club. We can't wait to see you on the court!</p>
+      </div>
+    </div>
+  </div>
 </div>

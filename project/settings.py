@@ -37,11 +37,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'ckeditor',
     "news",
     "courts",
     "account",
     "members",
 ]
+
+CKEDITOR_CONFIGS = {'default': {
+    'removePlugins': 'stylesheetparser',
+    'allowedContent': True,},}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
