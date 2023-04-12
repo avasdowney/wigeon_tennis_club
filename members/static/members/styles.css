@@ -16,7 +16,7 @@ body {
 
 .main {
     text-align: left;
-    border: solid red 1px;
+    border: solid black 1px;
     padding: 0% 5%;
     margin-left: 21%;
     right: 200px;
@@ -44,6 +44,7 @@ img {
 }
 
 .nav {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
     width: 20%;
     position: fixed;
     top: 100px;
@@ -69,12 +70,19 @@ img {
     line-height: 150%;
 }
 
+.info {
+  background-color: slategray;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
 .navul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: orange;
+    background-color: #dd9170;
     border: 1px solid #555;
   }
   

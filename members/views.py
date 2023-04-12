@@ -31,7 +31,7 @@ class DirectoryView(generic.ListView):
     template_name = 'members/directory.html'
 
     def get_queryset(self):
-        return CustomUser.objects.all()
+        return CustomUser.objects.all().order_by("last_name")
 
 def index(request):
     return render(request, 'signup.html', context)
