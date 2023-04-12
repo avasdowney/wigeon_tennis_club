@@ -2,6 +2,8 @@
 {% load custom_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 
+<title>{% block title %}Wigeon Tennis Club{% endblock %}</title>
+
 {% if user.is_authenticated %}
 <div style="position: fixed;">
     <button onclick="location.href='/logout/'">Logout</button>
@@ -9,21 +11,27 @@
         and news/templatetags/custom_tags.py to work. -->
     {% if request.user|has_group:"admin" %}
     <button onclick="location.href='/add_news/'">Add News Story</button>
+    {% endif %}
 </div>
-{% endif %}
-
 
 <div class="main">
-    <h1> News Homepage </h1>
-    <p>Welcome to the news page, {{ user.first_name }}. Stay up to date with our weekly news articles!</p>
-    
+    <div class="top-style">
+        <img src="../static/news/images/sports_tennis.jpg" alt="tennis_rackets"> </img>
+        <div class="top-text">
+            <h1> News Homepage </h1>
+        </div>
+        <p style="color: black;">Welcome to the news page, {{ user.first_name }}. Stay up to date with our weekly news articles!</p>
+    </div> 
+
     <!-- Display news stories from database reverse chronologically -->
     {% block content %}
         {% if news_list %}
             {% for story in news_list %}
-                <h2> {{ story.title }} </h2>
-                <p> {{ story.date }} </p>
-                <p> {{ story.story|safe}}</p>
+                <div class="story">
+                    <h2> {{ story.title }} </h2>
+                    <p> {{ story.date }} </p>
+                    <p> {{ story.story|safe}}</p>
+                </div>
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>

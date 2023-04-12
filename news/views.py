@@ -20,4 +20,4 @@ class NewsView(generic.ListView):
     template_name = 'news/news_home.html'
 
     def get_queryset(self):
-        return AddNews.objects.all()
+        return AddNews.objects.all().order_by("-date")
