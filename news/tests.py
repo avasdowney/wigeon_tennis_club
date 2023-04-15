@@ -1,6 +1,7 @@
 from django.test import TestCase
 
 from news.models import AddNews
+from django.urls import reverse
 from django.utils import timezone
 from news.forms import AddNewsForm
 

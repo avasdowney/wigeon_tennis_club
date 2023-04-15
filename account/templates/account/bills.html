@@ -2,10 +2,15 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'account/bills.css' %}">
 
+{% if user.is_authenticated %}
 <h1>Pay Your Bills</h1>
+<p> Hi, {{ user.first_name }}, you owe ${{ user.total_due }}. </p>
 <form action="" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
  </form>
- 
+{% else %}
+    <p>You are not logged in</p>
+    <button onclick="location.href='/login/'">Log In</button>
+{% endif %}
