@@ -3,6 +3,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'account/bills.css' %}">
 
 {% if user.is_authenticated %}
+<button onclick="location.href='/logout/'">Logout</button>
+
 <h1>Pay Your Bills</h1>
 <p> Hi, {{ user.first_name }}, you owe ${{ user.total_due }}. </p>
 <form action="" method="post">

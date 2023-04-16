@@ -20,7 +20,10 @@ def signup(request):
             login(request, user)
 
             # redirect user to home page
-            return redirect('news')
+            if user.pay_online == False:
+                return redirect('news')
+            else:
+                return redirect('billing')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
