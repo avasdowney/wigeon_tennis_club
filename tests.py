@@ -20,9 +20,15 @@ class LoginTests(TestCase):
             )
     
     def test_login(self):
-        self.assertFalse(get_user(self.client).is_authenticated)
+        self.assertFalse(get_user(self.client).is_active)
         self.client.login(username='test_user', password='top_secret')
-        self.assertTrue(get_user(self.client).is_authenticated)
+        self.assertTrue(get_user(self.client).is_active)
+
+    def test_logout(self):
+        self.client.login(username='test_user', password='top_secret')
+        self.assertTrue(get_user(self.client).is_active)
+        self.client.logout()
+        self.assertFalse(get_user(self.client).is_active)
 
     def test_login_url_exists_at_correct_location(self):
         response = self.client.get("/login")

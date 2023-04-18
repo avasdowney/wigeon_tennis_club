@@ -1,10 +1,11 @@
 from django.test import TestCase, SimpleTestCase
 from django.urls import reverse 
 from django.conf import settings
-
 from django.contrib.auth import get_user
+from django.contrib.auth.models import User, Permission, Group
 from .models import CustomUser
 
+# test to ensure all pages load as expected
 class MembersHomepageTests(SimpleTestCase):
 
     def test_members_url_exists_at_correct_location(self):
@@ -19,9 +20,12 @@ class MembersHomepageTests(SimpleTestCase):
         response = self.client.get(reverse("members:signup"))
         self.assertTemplateUsed(response, "signup.html")
 
+
+# test to ensure all member info is stored/used as expected
 class MemberInfoTest(TestCase):
 
     def setUp(self):
+        # define all types of users
         self.user = CustomUser.objects.create_user(
             first_name='test', 
             last_name='user', 
@@ -60,6 +64,15 @@ class MemberInfoTest(TestCase):
             is_public=True, 
             pay_online=True
             )
+        
+        # for admin testing
+        self.group = Group(name="admin")
+        self.group.save()
+
+    def test_user_creation(self):
+        self.assertFalse(get_user(self.client).is_authenticated)
+        self.client.login(username='test_user', password='top_secret')
+        self.assertTrue(get_user(self.client).is_authenticated)
 
     def test_user_info(self):
         self.assertEqual(self.user.first_name, 'test')
@@ -76,4 +89,5 @@ class MemberInfoTest(TestCase):
         self.assertEqual(self.user.total_due, 400)
         self.assertEqual(self.child.total_due, 250)
         self.assertEqual(self.senior.total_due, 300)
+
         
