@@ -12,5 +12,5 @@ class BillingForm(ModelForm):
             'cardExpDate' : ('Expiration Date'),
             'cvv' : ('Security Code'),
             'zipCode' : ("Zip Code"),
-            'ammountCharge' : ("Amount to be Charged")
+            'amountCharge' : ("Amount to be Charged")
         }

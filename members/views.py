@@ -8,7 +8,7 @@ from .models import CustomUser
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and len(CustomUser.objects.all() < 1001):
             user = form.save()
             user.refresh_from_db()  
             # load the profile instance created by the signal
@@ -20,7 +20,10 @@ def signup(request):
             login(request, user)
 
             # redirect user to home page
-            return redirect('news')
+            if user.pay_online == False:
+                return redirect('news')
+            else:
+                return redirect('billing')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
