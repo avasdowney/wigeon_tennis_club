@@ -11,17 +11,17 @@ class CustomUser(AbstractUser):
     total_due = models.DecimalField(default=0.00, decimal_places=2, max_digits=9999)
 
     def save(self, *args, **kwargs):
-            if self.age < 18 and self.did_pay == False:
-                self.total_due = 250.00
-            elif self.age >=18 and self.age < 65 and self.did_pay == False:
-                self.total_due = 400.00
-            elif self.age >= 65 and self.did_pay == False:
-                self.total_due = 300.00
-            super(CustomUser, self).save(*args, **kwargs)
+        if self.age < 18 and self.did_pay == False:
+            self.total_due = 250.00
+        elif self.age >=18 and self.age < 65 and self.did_pay == False:
+            self.total_due = 400.00
+        elif self.age >= 65 and self.did_pay == False:
+            self.total_due = 300.00
+        super(CustomUser, self).save(*args, **kwargs)
 
     def base(request):
         # grab all users from database:
-        all_stories = CustomUser.objects.all()
+        all_users = CustomUser.objects.all()
         return render(request, 'directory.html', 
             {
             'age': age, 
