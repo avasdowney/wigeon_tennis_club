@@ -10,7 +10,7 @@
     <!-- Make only admin able to see add news button. Code also added to project/settings.py 
         and news/templatetags/custom_tags.py to work. -->
     {% if request.user|has_group:"admin" %}
-    <button onclick="location.href='/add_news/'">Add News Story</button>
+    <button onclick="location.href='/news/add_news/'">Add News Story</button>
     {% endif %}
 </div>
 

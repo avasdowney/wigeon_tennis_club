@@ -23,3 +23,7 @@ Cam, Anthony, Ava
 1. Test server using ```python3 manage.py test project``` in base directory
 1. If running from new clone of the repo run ```python3 manage.py makemigrations``` then ```python3 manage.py migrate``` to instantiate database
 1. Create admin profile: ```python3 manage.py createsuperuser```
+
+## Running Test Cases
+1. To run all test cases, ```coverage run manage.py test -v 2```
+1. To run test case on just one app, ```coverage run manage.py test [app] -v 2```

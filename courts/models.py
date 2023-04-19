@@ -26,6 +26,7 @@ timeBlocks=(
     )
 
 class courtReservationForm(models.Model):
+    courtDate = models.DateField()
     courtNumber = models.IntegerField(
         choices = courtNumber,
         blank = False,
@@ -47,5 +48,3 @@ class courtReservationForm(models.Model):
     guest4EMail = models.EmailField(max_length=254, blank = True)
     guest4FName = models.CharField(max_length=100, blank = True)
     guest4LName = models.CharField(max_length=100, blank = True)
-
-

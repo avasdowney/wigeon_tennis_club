@@ -10,7 +10,8 @@ class Bill(models.Model):
     cardExpDate = models.DateField()
     cvv = models.IntegerField(validators = [MinValueValidator(100), MaxValueValidator(999)], blank=False)
     zipCode = models.IntegerField(validators = [MinValueValidator(10000), MaxValueValidator(99999)], blank = False)
-    ammountCharge= models.DecimalField(decimal_places = 2, max_digits = 6, blank=False)
+    total_due = models.DecimalField(default=0.00, decimal_places=2, max_digits=9999)
+    # amountCharge = models.DecimalField(decimal_places = 2, max_digits = 6, blank=False)
 
 
 
