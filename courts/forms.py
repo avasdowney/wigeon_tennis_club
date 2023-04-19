@@ -6,8 +6,9 @@ class ReservationForm(ModelForm):
         model = courtReservationForm
         fields = '__all__'
         labels = {
+            'courtDate' : ('Date YYYY-MM-DD'),
             'courtNumber' : ('Court Number'),
-            "courtTime" : ('Court Time'),
+            "courtTime" : ('Time'),
             'guest1EMail' : ("Guest 1's Email Address"),
             'guest1FName': ("Guest 1's First Name"),
             'guest1LName': ("Guest 1's Last Name"),
