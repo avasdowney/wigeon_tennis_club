@@ -13,3 +13,4 @@ class Bill(models.Model):
     ammountCharge= models.DecimalField(decimal_places = 2, max_digits = 6, blank=False)
 
 
+

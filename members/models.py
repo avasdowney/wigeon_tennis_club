@@ -8,12 +8,4 @@ class CustomUser(AbstractUser):
     is_public = models.BooleanField(default=False)
     did_pay = models.BooleanField(default=False)
 
-    def base(request):
-        # grab all users from database:
-        all_stories = CustomUser.objects.all()
-        return render(request, 'directory.html', 
-            {
-            'age': age, 
-            'address': address,
-            'phone': phone,
-            })
+

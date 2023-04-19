@@ -1,6 +1,23 @@
 {% load static %}
 <h1>Admin Account</h1>
 <link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
+<div class="main">
+    {% block content %}
+        {% if reservation_list %}
+            {% for reservation in reservation_list %}
+                <h3>Court: {{ reservation.courtNumber}} </h3>
+                <p>Time: {{reservation.courtTime}}</p>
+                <p>Guest 1 Name: {{reservation.guest1FName}} {{reservation.guest1LName}}</p>
+                <p>Guest 2 Name: {{reservation.guest2FName}} {{reservation.guest2LName}}</p>
+                <p>Guest 3 Name: {{reservation.guest3FName}} {{reservation.guest3LName}}</p>
+                <p>Guest 4 Name: {{reservation.guest4FName}} {{reservation.guest4LName}}</p>
+            {% endfor %}
+        {% else %}
+            <p>No users are available.</p>
+        {% endif %}
+    {% endblock %}
+</div>
+
 <div class="nav">
     <ul class="navul">
         <li><a href="/directory/">Directory</a></li>
