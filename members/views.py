@@ -8,7 +8,7 @@ from .models import CustomUser
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        if form.is_valid() and len(CustomUser.objects.all() < 1001):
+        if form.is_valid() and len(CustomUser.objects.all()) < 1001:
             user = form.save()
             user.refresh_from_db()  
             # load the profile instance created by the signal
