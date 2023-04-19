@@ -1,3 +1,7 @@
+{% load static %}
+{% load custom_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+
 {% block content %}
 {% if user.is_authenticated %}
   <h1> News story submitted! </h1>
