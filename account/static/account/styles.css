@@ -1,5 +1,9 @@
 body {
-    background-color: #adffa9;
+  background-color: #adffa9;
+}
+
+.main {
+  text-align: center;
 }
 
 .profilePic {

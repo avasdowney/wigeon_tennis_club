@@ -19,12 +19,3 @@ class CustomUser(AbstractUser):
             self.total_due = 300.00
         super(CustomUser, self).save(*args, **kwargs)
 
-    def base(request):
-        # grab all users from database:
-        all_users = CustomUser.objects.all()
-        return render(request, 'directory.html', 
-            {
-            'age': age, 
-            'address': address,
-            'phone': phone,
-            })
