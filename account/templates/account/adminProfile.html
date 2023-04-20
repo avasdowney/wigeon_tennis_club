@@ -6,6 +6,7 @@
         {% if reservation_list %}
             {% for reservation in reservation_list %}
                 <h3>Court: {{ reservation.courtNumber}} </h3>
+                <p>Date: {{reservation.courtDate}}</p>
                 <p>Time: {{reservation.courtTime}}</p>
                 <p>Guest 1 Name: {{reservation.guest1FName}} {{reservation.guest1LName}}</p>
                 <p>Guest 2 Name: {{reservation.guest2FName}} {{reservation.guest2LName}}</p>

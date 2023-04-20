@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth import get_user
 from django.contrib.auth.models import User, Permission, Group
 from .models import CustomUser
+from .forms import SignUpForm
 
 # test to ensure all pages load as expected
 class MembersHomepageTests(SimpleTestCase):
@@ -90,4 +91,206 @@ class MemberInfoTest(TestCase):
         self.assertEqual(self.child.total_due, 250)
         self.assertEqual(self.senior.total_due, 300)
 
-        
+# test to ensure all signup works as expected
+class SignupTest(TestCase):    
+
+    def test_signup_form_password_valid(self):
+        form = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 25,
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_signup_form_password_invalid(self):
+        form = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 25,
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'password',
+                                'password2' : 'password',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        form2 = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 25,
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'password!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+
+        self.assertFalse(form.is_valid())
+        self.assertFalse(form2.is_valid())
+
+    def test_signup_form_incomplete(self):
+        form = SignUpForm(data={'last_name' : 'user', 
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city',  
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form.is_valid())
+
+        form2 = SignUpForm(data={'first_name' : 'test', 
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city',  
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form2.is_valid())
+
+        form3 = SignUpForm(data={'first_name' : 'test',
+                                'last_name' : 'user', 
+                                'address' : '123 street road city',  
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form3.is_valid())
+
+        form4 = SignUpForm(data={'first_name' : 'test',
+                                'last_name' : 'user', 
+                                'phone' : 1234567890,   
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form4.is_valid())
+
+        form5 = SignUpForm(data={'first_name' : 'test',
+                                'last_name' : 'user', 
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city',  
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form5.is_valid())
+
+        form6 = SignUpForm(data={'first_name' : 'test',
+                                'last_name' : 'user', 
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city',  
+                                'email' : 'testuser@email.com', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form6.is_valid())
+
+        form7 = SignUpForm(data={'first_name' : 'test',
+                                'last_name' : 'user', 
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city',  
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'pay_online' : True
+        })
+        self.assertFalse(form7.is_valid())
+
+        form8 = SignUpForm(data={'first_name' : 'test',
+                                'last_name' : 'user', 
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city',  
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+        })
+        self.assertFalse(form8.is_valid())
+
+    def test_signup_form_age_invalid(self):
+        form = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 'abc',
+                                'phone' : 1234567890, 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+
+        self.assertFalse(form.is_valid())
+
+    def test_signup_form_phone_invalid(self):
+        form = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 25,
+                                'phone' : 12345678901234567, 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form.is_valid())
+
+        form2 = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 25,
+                                'phone' : "abc", 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form2.is_valid())
+
+        form3 = SignUpForm(data={'first_name' : 'test', 
+                                'last_name' : 'user', 
+                                'age' : 25,
+                                'phone' : 1234, 
+                                'address' : '123 street road city', 
+                                'email' : 'testuser@email.com', 
+                                'username' : 'test_user', 
+                                'password1' : 'Top_secret123!',
+                                'password2' : 'Top_secret123!',
+                                'is_public' : True, 
+                                'pay_online' : True
+        })
+        self.assertFalse(form3.is_valid())

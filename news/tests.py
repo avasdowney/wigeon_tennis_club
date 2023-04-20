@@ -12,6 +12,9 @@ class AddNewsTest(TestCase):
     def create_news(self, title="only a test", story="yes, this is only a test"):
         return AddNews.objects.create(title=title, story=story)
 
+    def create_news_2(self, title="only a test", story="yes, this is only a test \n\n <p style='color:purple'>"):
+        return AddNews.objects.create(title=title, story=story)
+
     def test_news_title_creation(self):
         news = self.create_news()
         self.assertTrue(isinstance(news, AddNews))
@@ -21,6 +24,13 @@ class AddNewsTest(TestCase):
         news = self.create_news()
         self.assertTrue(isinstance(news, AddNews))
         self.assertEqual("yes, this is only a test", news.story)
+
+    def test_news_story_creation_2(self):
+        news = self.create_news_2()
+        self.assertTrue(isinstance(news, AddNews))
+        self.assertEqual("""yes, this is only a test 
+
+ <p style='color:purple'>""", news.story)
 
     def test_news_title_creation_fail(self):
         news = self.create_news()
