@@ -30,6 +30,6 @@ urlpatterns = [
     path('members/', include('members.urls')),
     path("directory/", members_view.DirectoryView.as_view(), name="directory"),
     path('signup/', members_view.signup, name='signup'),
-    path('courts/', include('courts.urls')),
+    path('courts/', include('courts.urls'), name='courts'),
     path('account/', include('account.urls')),
 ]
