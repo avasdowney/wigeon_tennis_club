@@ -3,6 +3,8 @@ from .forms import BillingForm
 from django.views import generic
 from django.utils import timezone
 from members import models as view_members
+from members import forms as member_forms
+from members import views as member_views
 from courts import models as view_reservations
 from .models import Bill
 from django.views import generic
@@ -22,7 +24,12 @@ def billing(request):
     return render(request, 'account/bills.html', context)
 
 def editProfile(request):
-    return render(request, 'account/editProfile.html')
+    current_user = request.user
+    prefill = view_members.CustomUser(first_name=current_user.first_name, last_name=current_user.last_name, age=current_user.age, email=current_user.email, address=current_user.address, 
+    phone=current_user.phone, is_public=current_user.is_public, pay_online=current_user.pay_online, 
+    did_pay=current_user.did_pay, total_due=current_user.total_due)
+    form = member_forms.SignUpForm(instance=prefill)
+    return render(request, 'account/editProfile.html', {'form':form})
 
 def adminProfile(request):
     return render(request, 'account/adminProfile.html')
@@ -55,4 +62,4 @@ class BillView(generic.ListView):
     template_name = 'account/clubBills.html'
 
     def get_queryset(self):
-        return view_reservations.courtReservationForm.objects.all()
+        return Bill.objects.all()

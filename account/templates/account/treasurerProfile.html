@@ -12,6 +12,8 @@
                 <p>Phone Number: {{user.phone }}</p>
                 <p>Email Address: {{user.email }}</p>
                 <p>Address: {{user.address }}</p>
+                <p>Did Pay: {{user.did_pay}}</p>
+                <p>Amount Due: {{user.total_due}}</p>
             {% endfor %}
         {% else %}
             <p>No users are available.</p>
