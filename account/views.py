@@ -62,4 +62,5 @@ class BillView(generic.ListView):
     template_name = 'account/clubBills.html'
 
     def get_queryset(self):
-        return Bill.objects.all()
+        return view_reservations.courtReservationForm.objects.all()
+
