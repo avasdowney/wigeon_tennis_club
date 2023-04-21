@@ -2,7 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
+    first_name = models.CharField(max_length=100, null=True)
+    last_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)
+    email = models.CharField(max_length=200, null=True)
     address = models.CharField(max_length=200, null=True)
     phone = models.IntegerField(null=True)
     is_public = models.BooleanField(default=False)
