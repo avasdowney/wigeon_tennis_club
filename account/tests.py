@@ -51,7 +51,7 @@ class MemberAccountInfo(TestCase):
             is_public=True, 
             pay_online=True
             )
-
+            
     def test_account_user_info(self):
             self.assertEqual(self.user.first_name, 'test2')
             self.assertEqual(self.user.last_name, 'user2')
@@ -103,3 +103,4 @@ class AddBillTest(TestCase):
         bills = self.create_bill()
         self.assertTrue(isinstance(bills, Bill))
         self.assertEqual(1234567890123456, bills.creditCardNumber)
+
