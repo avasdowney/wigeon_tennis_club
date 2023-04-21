@@ -4,6 +4,7 @@ from django.views import generic
 from django.utils import timezone
 from members import models as view_members
 from courts import models as view_reservations
+from .models import Bill
 from django.views import generic
 # Create your views here.
 
@@ -41,6 +42,14 @@ class ReservationView(generic.ListView):
     model = view_reservations.courtReservationForm
     context_object_name = 'reservation_list'
     template_name = 'account/adminProfile.html'
+
+    def get_queryset(self):
+        return view_reservations.courtReservationForm.objects.all()
+    
+class BillView(generic.ListView):
+    model = Bill
+    context_object_name = 'bill_list'
+    template_name = 'account/clubBills.html'
 
     def get_queryset(self):
         return view_reservations.courtReservationForm.objects.all()
