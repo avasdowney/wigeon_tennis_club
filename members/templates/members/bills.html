@@ -1,15 +1,15 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'account/bills.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'members/bills.css' %}">
 
 {% if user.is_authenticated %}
 <button onclick="location.href='/logout/'">Logout</button>
 
 <h1>Pay Your Bills</h1>
-<p> Hi, {{ user.first_name }}, you owe ${{ user.total_due }}. </p>
+<p> Hi {{ user.first_name }}, you owe ${{ user.total_due }}. </p>
 <form action="" method="post">
     {% csrf_token %}
-    {{ form }} <br><br>
+    {{ form.as_table }} <br><br>
     <input type="submit" value="Submit"> &nbsp;
     <button onclick="location.href='/news/'">Cancel</button>
  </form>

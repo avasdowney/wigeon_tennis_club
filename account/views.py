@@ -1,27 +1,16 @@
 from django.shortcuts import render
-from .forms import BillingForm
 from django.views import generic
 from django.utils import timezone
 from members import models as view_members
 from members import forms as member_forms
 from members import views as member_views
 from courts import models as view_reservations
-from .models import Bill
+from members.models import CustomUser
 from django.views import generic
 # Create your views here.
 
 def account(request):
     return render(request, 'account/profilepage.html')
-
-def billing(request):
-    if request.method == 'POST':
-        form = BillingForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'account/success.html', {})
-    form = BillingForm()
-    context = {'form': form}
-    return render(request, 'account/bills.html', context)
 
 def editProfile(request):
     current_user = request.user
@@ -52,14 +41,6 @@ class ReservationView(generic.ListView):
     model = view_reservations.courtReservationForm
     context_object_name = 'reservation_list'
     template_name = 'account/adminProfile.html'
-
-    def get_queryset(self):
-        return view_reservations.courtReservationForm.objects.all()
-    
-class BillView(generic.ListView):
-    model = Bill
-    context_object_name = 'bill_list'
-    template_name = 'account/clubBills.html'
 
     def get_queryset(self):
         return view_reservations.courtReservationForm.objects.all()

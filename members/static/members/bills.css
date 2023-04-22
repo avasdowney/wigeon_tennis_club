@@ -1,0 +1,9 @@
+body {
+    background-color: #70b699;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+input[type=text], textarea {
+    display: list-item;
+   }
+   
