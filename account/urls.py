@@ -4,7 +4,6 @@ from . import views
 app_name = "account"
 urlpatterns = [
     path('', views.account, name='index'),
-    path('account', views.account, name="account"),
     path('bills', views.billing, name="billing"),
     path('editProfile', views.editProfile, name="editProfile"),
     path('adminProfile', views.ReservationView.as_view(), name="adminProfile"),
