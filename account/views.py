@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from .forms import BillingForm
 from django.views import generic
 from django.utils import timezone
 from members import models as view_members
@@ -7,17 +9,19 @@ from members import views as member_views
 from courts import models as view_reservations
 from members.models import CustomUser
 from django.views import generic
+from django.http import HttpResponse
 # Create your views here.
 
 def account(request):
     return render(request, 'account/profilepage.html')
 
 def editProfile(request):
-    current_user = request.user
-    prefill = view_members.CustomUser(first_name=current_user.first_name, last_name=current_user.last_name, age=current_user.age, email=current_user.email, address=current_user.address, 
-    phone=current_user.phone, is_public=current_user.is_public, pay_online=current_user.pay_online, 
-    did_pay=current_user.did_pay, total_due=current_user.total_due)
-    form = member_forms.SignUpForm(instance=prefill)
+    current_user = view_members.CustomUser.objects.get(id=request.user.id)
+    form = member_forms.SignUpForm(request.POST or None, instance=current_user)
+    if form.is_valid():
+        form.save()
+        login(request, current_user)
+        return render(request, 'account/updateSuccess.html')
     return render(request, 'account/editProfile.html', {'form':form})
 
 def adminProfile(request):
@@ -28,6 +32,11 @@ def treasurerProfile(request):
 
 def reservations(request):
     return render(request, 'account/reservations.html')
+
+def delete_reservation(request, reservation_id):
+    current_reservation = view_reservations.courtReservationForm.objects.get(pk=reservation_id)
+    current_reservation.delete()
+    return redirect('adminProfile')
 
 class DirectoryView(generic.ListView):
     model = view_members.CustomUser
@@ -44,4 +53,11 @@ class ReservationView(generic.ListView):
 
     def get_queryset(self):
         return view_reservations.courtReservationForm.objects.all()
+    
+class BillView(generic.ListView):
+    model = Bill
+    context_object_name = 'bill_list'
+    template_name = 'account/clubBills.html'
 
+    def get_queryset(self):
+        return Bill.objects.all()
