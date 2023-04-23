@@ -4,6 +4,7 @@ from members.models import CustomUser
 from django.contrib.auth import get_user
 from .models import Bill
 
+# Create your tests here.
 class AccountHomepageTests(TestCase):
     def test_account_url_exists_at_correct_location(self):
          response = self.client.get("/account")
@@ -50,7 +51,7 @@ class MemberAccountInfo(TestCase):
             is_public=True, 
             pay_online=True
             )
-        
+            
     def test_account_user_info(self):
             self.assertEqual(self.user.first_name, 'test2')
             self.assertEqual(self.user.last_name, 'user2')
@@ -92,7 +93,7 @@ class AddBillTest(TestCase):
         zipCode=12345, 
         total_due=100):
         return Bill.objects.create(firstName=firstName, lastName=lastName, creditCardNumber=creditCardNumber, cardExpDate=cardExpDate, cvv=cvv, zipCode=zipCode, total_due=total_due)
-     
+
      def test_bills_first_name(self):
         bills = self.create_bill()
         self.assertTrue(isinstance(bills, Bill))
@@ -102,3 +103,4 @@ class AddBillTest(TestCase):
         bills = self.create_bill()
         self.assertTrue(isinstance(bills, Bill))
         self.assertEqual(1234567890123456, bills.creditCardNumber)
+
