@@ -19,6 +19,7 @@ from django.views.generic.base import TemplateView
 from django.shortcuts import redirect
 from news import views as news_view
 from members import views as members_view
+from account import views as accounts_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +32,6 @@ urlpatterns = [
     path("directory/", members_view.DirectoryView.as_view(), name="directory"),
     path('signup/', members_view.signup, name='signup'),
     path('courts/', include('courts.urls'), name='courts'),
+    path('clubBills', accounts_view.BillView.as_view(), name="clubBills"),
     path('account/', include('account.urls')),
 ]
