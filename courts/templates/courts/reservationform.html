@@ -4,6 +4,8 @@
 
 {% if user.is_authenticated %}
     <h1>Court Reservation Form</h1>
+    <p1>Disclaimer: Due to company policy, your account will be charged $10 per nonmember guest</p1>
+    <br>
     <form action="" method="post">
         {% csrf_token %}
         {{ form }}

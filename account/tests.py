@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from members.models import CustomUser
 from django.contrib.auth import get_user
+from .models import Bill
 
 # Create your tests here.
 class AccountHomepageTests(TestCase):
@@ -50,7 +51,7 @@ class MemberAccountInfo(TestCase):
             is_public=True, 
             pay_online=True
             )
-            
+
     def test_account_user_info(self):
             self.assertEqual(self.user.first_name, 'test2')
             self.assertEqual(self.user.last_name, 'user2')
@@ -82,3 +83,23 @@ class MemberAccountInfo(TestCase):
         response = self.client.get("account")
         self.assertTemplateNotUsed(response, "account/treasurerProfile.html")
 
+class AddBillTest(TestCase):
+     def create_bill(self, 
+        firstName="Test", 
+        lastName="Bill", 
+        creditCardNumber=1234567890123456, 
+        cardExpDate='2025-05-5',
+        cvv=666, 
+        zipCode=12345, 
+        total_due=100):
+        return Bill.objects.create(firstName=firstName, lastName=lastName, creditCardNumber=creditCardNumber, cardExpDate=cardExpDate, cvv=cvv, zipCode=zipCode, total_due=total_due)
+
+     def test_bills_first_name(self):
+        bills = self.create_bill()
+        self.assertTrue(isinstance(bills, Bill))
+        self.assertEqual("Test", bills.firstName)
+
+     def test_bills_card_number(self):
+        bills = self.create_bill()
+        self.assertTrue(isinstance(bills, Bill))
+        self.assertEqual(1234567890123456, bills.creditCardNumber)
