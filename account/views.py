@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import BillingForm
 from django.views import generic
 from django.utils import timezone
 from members import models as view_members
@@ -55,9 +54,9 @@ class ReservationView(generic.ListView):
         return view_reservations.courtReservationForm.objects.all()
     
 class BillView(generic.ListView):
-    model = Bill
+    model = CustomUser
     context_object_name = 'bill_list'
     template_name = 'account/clubBills.html'
 
     def get_queryset(self):
-        return Bill.objects.all()
+        return CustomUser.objects.all()
