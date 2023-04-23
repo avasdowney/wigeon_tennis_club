@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views import generic
 from django.utils import timezone
-from .models import CustomUser, Bill
+from .models import CustomUser
 
 def signup(request):
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def signup(request):
             if user.pay_online == False:
                 return redirect('news')
             else:
-                return redirect('account:billing')
+                return redirect('members:billing')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

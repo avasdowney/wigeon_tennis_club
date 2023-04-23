@@ -6,7 +6,8 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     list_display = (
             'username', 'email', 'first_name', 'last_name', 'age',
-            'phone', 'address', 'total_due', 'pay_online', 'is_public', 'did_pay', 'is_staff'
+            'phone', 'address', 'zip_code', 'total_due', 'credit_card_number', 'card_exp_date', 
+            'cvv', 'pay_online', 'is_public', 'did_pay', 'renewal', 'is_staff'
             )
 
     fieldsets = (
@@ -14,7 +15,8 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('username', 'password')
         }),
         ('Personal info', {
-            'fields': ('first_name', 'last_name', 'email', 'phone', 'address', 'age', 'total_due')
+            'fields': ('first_name', 'last_name', 'email', 'phone', 'address', 'zip_code', 'age', 
+            'total_due', 'credit_card_number', 'card_exp_date', 'cvv')
         }),
         ('Permissions', {
             'fields': (
@@ -26,7 +28,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('last_login', 'date_joined')
         }),
         ('Flags', {
-            'fields': ('is_public', 'did_pay')
+            'fields': ('is_public', 'did_pay', 'renewal')
         })
     )
 
@@ -35,7 +37,8 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('username', 'password')
         }),
         ('Personal info', {
-            'fields': ('first_name', 'last_name', 'email', 'phone', 'address', 'age', 'total_due')
+            'fields': ('first_name', 'last_name', 'email', 'phone', 'address', 'zip_code', 'age', 
+            'total_due', 'credit_card_number', 'card_exp_date', 'cvv')
         }),
         ('Permissions', {
             'fields': (
@@ -47,7 +50,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('last_login', 'date_joined')
         }),
         ('Flags', {
-            'fields': ('is_public', 'did_pay')
+            'fields': ('is_public', 'did_pay', 'renewal')
         })
     )
 

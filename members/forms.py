@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django import forms
-from .models import CustomUser, Bill
+from .models import CustomUser
 
 did_pay_choices=(
        ("True", "Pay Online"),
@@ -35,9 +35,10 @@ class BillingForm(ModelForm):
     credit_card_number = forms.IntegerField(required=True) #validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)],
     card_exp_date = forms.DateField(required=True)
     cvv = forms.IntegerField(validators = [MinValueValidator(100), MaxValueValidator(999)], required=True)
-    zip_code = forms.IntegerField(validators = [MinValueValidator(10000), MaxValueValidator(99999)], required=True)
+    zip_code = forms.IntegerField(required=True) #validators = [MinValueValidator(10000), MaxValueValidator(99999)],
+
     class Meta:
-        model = Bill
+        model = CustomUser
         fields = 'first_name', 'last_name', 'credit_card_number', 'card_exp_date', 'cvv', 'zip_code'
         labels = {
             'first_name' : ("First Name"),
