@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'members/bills.css' %}">
 
+<title>{% block title %}Billing{% endblock %}</title>
+
 {% if user.is_authenticated %}
 <button onclick="location.href='/logout/'">Logout</button>
 

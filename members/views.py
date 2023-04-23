@@ -23,7 +23,7 @@ def signup(request):
             if user.pay_online == False:
                 return redirect('news')
             else:
-                return redirect('members:billing')
+                return redirect('members:billing', pk=user.pk)
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})

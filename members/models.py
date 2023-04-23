@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     did_pay = models.BooleanField(default=False)
     total_due = models.DecimalField(default=1000.00, decimal_places=2, max_digits=9999)
     renewal = models.BooleanField(default=False)
-    credit_card_number = models.IntegerField(null=True) #validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)]
+    credit_card_number = models.IntegerField(validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)], null=True)
     card_exp_date = models.DateField(null=True)
     cvv = models.IntegerField(validators = [MinValueValidator(100), MaxValueValidator(999)], blank=False, null=True)
     zip_code = models.IntegerField(validators = [MinValueValidator(10000), MaxValueValidator(99999)], blank = False, null=True)
