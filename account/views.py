@@ -9,6 +9,7 @@ from courts import models as view_reservations
 from members.models import CustomUser
 from django.views import generic
 from django.http import HttpResponse
+from .models import Bill
 # Create your views here.
 
 def account(request):
@@ -37,6 +38,11 @@ def delete_reservation(request, reservation_id):
     current_reservation.delete()
     return redirect('adminProfile')
 
+def delete_account(request, account_id):
+    current_account = view_members.CustomUser.objects.get(pk=account_id)
+    current_account.delete()
+    return redirect('news')
+
 class DirectoryView(generic.ListView):
     model = view_members.CustomUser
     context_object_name = 'user_list'
@@ -54,9 +60,9 @@ class ReservationView(generic.ListView):
         return view_reservations.courtReservationForm.objects.all()
     
 class BillView(generic.ListView):
-    model = CustomUser
+    model = Bill
     context_object_name = 'bill_list'
     template_name = 'account/clubBills.html'
 
     def get_queryset(self):
-        return CustomUser.objects.all()
+        return Bill.objects.all()

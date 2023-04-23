@@ -26,6 +26,7 @@
     <button onclick="location.href='/account/reservations'">My Reservations</button>
     <button onclick="location.href='/members/bills/{{ request.user.pk }}'">Pay Your Bills</button>
     <button onclick="location.href='/account/editProfile'">Edit Profile</button>
+    <a href="{% url 'deleteAccount' user.id %}">Delete</a>
 </div>
 <div class="logout">
     <button onclick="location.href='/logout/'">Log Out</button>
