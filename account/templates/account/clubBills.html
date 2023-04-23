@@ -7,7 +7,7 @@
     {% block content %}
         {% if bill_list %}
             {% for bill in bill_list %}
-                <h3>First Name: {{ bill.firstName }} {{ bill.lastName }} </h3>
+                <h3>First Name: {{ bill.first_name }} {{ bill.last_name }} </h3>
                 <p>Amount Due: {{ bill.total_due }}</p>
             {% endfor %}
         {% else %}
