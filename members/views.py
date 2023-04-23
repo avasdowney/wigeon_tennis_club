@@ -36,11 +36,14 @@ class DirectoryView(generic.ListView):
     def get_queryset(self):
         return CustomUser.objects.all().order_by("last_name")
 
-def billing(request):
+def billing(request, pk):
     if request.method == 'POST':
         form = BillingForm(request.POST)
         if form.is_valid():
             form.save()
+            user = CustomUser.objects.get(id=pk)
+            user.total_due = 0.00  # change field
+            user.save() # this will update only
             return render(request, 'members/success.html')
     form = BillingForm()
     context = {'form': form}

@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('signup/', views.signup, name='signup'),
     path("directory/", views.DirectoryView.as_view(), name="directory"),
-    path('bills', views.billing, name="billing"),
+    path('bills/<int:pk>', views.billing, name="billing"),
 ]
