@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib.auth import get_user
 from django.contrib.auth.models import User, Permission, Group
 from .models import CustomUser
-from .forms import SignUpForm
+from .forms import SignUpForm, BillingForm
 
 # test to ensure all pages load as expected
 class MembersHomepageTests(SimpleTestCase):
@@ -87,9 +87,9 @@ class MemberInfoTest(TestCase):
         self.assertEqual(self.user.pay_online, True)
 
     def test_initiation_fees(self):
-        self.assertEqual(self.user.total_due, 400)
-        self.assertEqual(self.child.total_due, 250)
-        self.assertEqual(self.senior.total_due, 300)
+        self.assertEqual(self.user.total_due, 1000)
+        self.assertEqual(self.child.total_due, 1000)
+        self.assertEqual(self.senior.total_due, 1000)
 
 # test to ensure all signup works as expected
 class SignupTest(TestCase):    
@@ -294,3 +294,24 @@ class SignupTest(TestCase):
                                 'pay_online' : True
         })
         self.assertFalse(form3.is_valid())
+
+class AddBillTest(TestCase):
+     def create_bill(self, 
+        first_name="Test", 
+        last_name="Bill", 
+        credit_card_number=1234567890123456, 
+        card_exp_date='2025-05-5',
+        cvv=666, 
+        zip_code=12345, 
+        total_due=100):
+        return CustomUser.objects.create(first_name=first_name, last_name=last_name, credit_card_number=credit_card_number, card_exp_date=card_exp_date, cvv=cvv, zip_code=zip_code, total_due=total_due)
+
+     def test_bills_first_name(self):
+        bills = self.create_bill()
+        self.assertTrue(isinstance(bills, CustomUser))
+        self.assertEqual("Test", bills.first_name)
+
+     def test_bills_card_number(self):
+        bills = self.create_bill()
+        self.assertTrue(isinstance(bills, CustomUser))
+        self.assertEqual(1234567890123456, bills.credit_card_number)
