@@ -23,7 +23,7 @@
 
 <div class="profileButtons">
     <button onclick="location.href='/account/'">reservations</button>
-    <button onclick="location.href='/account/bills'">Pay Your Bills</button>
+    <button onclick="location.href='/members/bills/{{ request.user.pk }}'">Pay Your Bills</button>
     <button onclick="location.href='/account/editProfile'">Edit Profile</button>
 </div>
 <p>Date Joined: {{ user.date_joined.date }}</p>
