@@ -11,6 +11,10 @@ body {
   text-align: center;
 }
 
+.clubBills {
+  line-height: 300%;
+}
+
 .profilePic {
     margin-left: 43%;
     padding-top: 5%;

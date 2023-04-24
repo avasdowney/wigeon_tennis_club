@@ -1,6 +1,10 @@
 {% load static %}
 {% load custom_tags %}
-<h1>Treasurer Account</h1>
+<div class="main">
+    <h1>Treasurer Account</h1>
+    <p>Welcome to the treasurer account. Here you can view all members payment history and club bills.</p>
+    <br><br>
+</div>
 <link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
 
 <div class="main">
@@ -31,5 +35,5 @@
 </div>
 
 <div class="treasurerButtons">
-    <button onclick="location.href='clubBills'">View Bills</button>
+    <button onclick="location.href='clubBills'">Club Bills</button>
 </div>

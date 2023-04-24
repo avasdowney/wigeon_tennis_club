@@ -1,7 +1,10 @@
 {% load static %}
 {% load custom_tags %}
 <link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
-<h1>Account Info</h1>
+<div class="main">
+    <h1>Account Info</h1>
+    <p>Welcome back {{user.first_name}}.</p>
+</div>
 <div class="nav">
     <ul class="navul">
         <li><a href="/directory/">Directory</a></li>
@@ -19,7 +22,6 @@
 
 <div class="profilePic">
     <img src="{% static '/account/defaultProfilePic.jpg' %}" alt="Default Profile">
-    <p>Date Joined: {{ user.date_joined.date }}</p>
 </div>
 
 <div class="profileButtons">
