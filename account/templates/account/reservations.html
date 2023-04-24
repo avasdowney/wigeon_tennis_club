@@ -1,27 +1,27 @@
 <h1>My Reservations</h1>
-<div>
+<!-- <div>
     <h3>Court: {{ reservation.courtNumber}} </h3>
     <p>Time: {{reservation.courtTime}}</p>
     <p>Guest 1 Name: {{reservation.guest1FName}} {{reservation.guest1LName}}</p>
     <p>Guest 2 Name: {{reservation.guest2FName}} {{reservation.guest2LName}}</p>
     <p>Guest 3 Name: {{reservation.guest3FName}} {{reservation.guest3LName}}</p>
     <p>Guest 4 Name: {{reservation.guest4FName}} {{reservation.guest4LName}}</p>
-</div>
-<!-- <div class="main">
+</div> -->
+<div class="main">
     {% block content %}
         {% if my_reservation_list %}
-            {% for my_reservation in reservation_list %}
-                <h3>Court: {{ my_reservation.courtNumber}} </h3>
-                <p>Date: {{my_reservation.courtDate}}</p>
+            {% for reservation in my_reservation_list %}
+                <h3>Court: {{ reservation.courtNumber}} </h3>
+                <p>Date: {{reservation.courtDate}}</p>
                 <p>Time: {{reservation.courtTime}}</p>
-                <p>Guest 1 Name: {{my_reservation.guest1FName}} {{my_reservation.guest1LName}}</p>
-                <p>Guest 2 Name: {{my_reservation.guest2FName}} {{my_reservation.guest2LName}}</p>
-                <p>Guest 3 Name: {{my_reservation.guest3FName}} {{my_reservation.guest3LName}}</p>
-                <p>Guest 4 Name: {{my_reservation.guest4FName}} {{my_reservation.guest4LName}}</p>
+                <p>Guest 1 Name: {{reservation.guest1FName}} {{reservation.guest1LName}}</p>
+                <p>Guest 2 Name: {{reservation.guest2FName}} {{reservation.guest2LName}}</p>
+                <p>Guest 3 Name: {{reservation.guest3FName}} {{my_reservation.guest3LName}}</p>
+                <p>Guest 4 Name: {{reservation.guest4FName}} {{reservation.guest4LName}}</p>
                 <a href="{% url 'deleteReservation' reservation.id %}">Delete</a>
             {% endfor %}
         {% else %}
             <p>No reservations are here.</p>
         {% endif %}
     {% endblock %}
-</div> -->
+</div>
