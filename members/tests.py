@@ -91,6 +91,18 @@ class MemberInfoTest(TestCase):
         self.assertEqual(self.child.total_due, 1000)
         self.assertEqual(self.senior.total_due, 1000)
 
+    def test_pay_bills(self):
+        self.user.total_due = 0
+        self.user.save()
+        form = BillingForm(data={'first_name' : 'test',
+                                 'last_name' : 'user',
+                                 'credit_card_number' : 1234567890123456,
+                                 'card_exp_date' : '12-01-2025',
+                                 'cvv' : 666,
+                                 'zip_code' : 12317,
+        })
+        self.assertEqual(self.user.total_due, 0)
+
 # test to ensure all signup works as expected
 class SignupTest(TestCase):    
 
