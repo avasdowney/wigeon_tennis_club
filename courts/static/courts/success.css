@@ -1,0 +1,12 @@
+body {
+    background-color: #70b699;
+  }
+
+.center {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid #70B699ff;
+    padding: 10px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+  }
