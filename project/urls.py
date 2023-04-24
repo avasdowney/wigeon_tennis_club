@@ -32,6 +32,7 @@ urlpatterns = [
     path("directory/", members_view.DirectoryView.as_view(), name="directory"),
     path('signup/', members_view.signup, name='signup'),
     path('courts/', include('courts.urls'), name='courts'),
+    path('bills/<int:pk>', members_view.billing, name="billing"),
     path('clubBills', accounts_view.BillView.as_view(), name="clubBills"),
     path('account/', include('account.urls')),
 ]
