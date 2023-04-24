@@ -17,7 +17,7 @@ class CustomUser(AbstractUser):
     credit_card_number = models.IntegerField(validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)], null=True)
     card_exp_date = models.DateField(null=True)
     cvv = models.IntegerField(validators = [MinValueValidator(100), MaxValueValidator(999)], blank=False, null=True)
-    zip_code = models.IntegerField(validators = [MinValueValidator(10000), MaxValueValidator(99999)], blank = False, null=True)
+    zip_code = models.IntegerField(validators = [MinValueValidator(0), MaxValueValidator(99999)], blank = False, null=True)
 
     def save(self, *args, **kwargs):
         if self.age is not None:
