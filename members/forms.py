@@ -32,10 +32,10 @@ class SignUpForm(UserCreationForm):
 class BillingForm(ModelForm):
     first_name = forms.CharField(max_length=100, required=True)
     last_name = forms.CharField(max_length=100, required=True)
-    credit_card_number = forms.IntegerField(required=True) #validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)],
+    credit_card_number = forms.IntegerField(validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)], required=True)
     card_exp_date = forms.DateField(required=True)
     cvv = forms.IntegerField(validators = [MinValueValidator(100), MaxValueValidator(999)], required=True)
-    zip_code = forms.IntegerField(required=True) #validators = [MinValueValidator(10000), MaxValueValidator(99999)],
+    zip_code = forms.IntegerField(validators = [MinValueValidator(1000), MaxValueValidator(99999)], required=True) 
 
     class Meta:
         model = CustomUser
