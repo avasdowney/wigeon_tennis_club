@@ -36,12 +36,12 @@ def reservations(request):
 def delete_reservation(request, reservation_id):
     current_reservation = view_reservations.courtReservationForm.objects.get(pk=reservation_id)
     current_reservation.delete()
-    return redirect('adminProfile')
+    return redirect('news')
 
 def delete_account(request, account_id):
     current_account = view_members.CustomUser.objects.get(pk=account_id)
     current_account.delete()
-    return redirect('news')
+    return redirect('news') 
 
 class DirectoryView(generic.ListView):
     model = view_members.CustomUser
@@ -58,6 +58,14 @@ class ReservationView(generic.ListView):
 
     def get_queryset(self):
         return view_reservations.courtReservationForm.objects.all()
+    
+class MyReservationView(generic.ListView):
+    model = view_reservations.courtReservationForm
+    context_object_name = 'my_reservation_list'
+    template_name = 'account/reservations.html'
+
+    def get_queryset(self):
+        return view_reservations.courtReservationForm.objects.all().filter(guest1FName= 'Ava')
     
 class BillView(generic.ListView):
     model = Bill
