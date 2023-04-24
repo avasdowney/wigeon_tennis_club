@@ -1,5 +1,6 @@
 body {
-  background-color: #adffa9;
+  background-color: #70b699;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .main {
@@ -37,6 +38,10 @@ img {
   margin-top: 5%;
 }
 
+.pageText {
+  text-align: center;
+}
+
 .nav {
     width: 20%;
     position: fixed;
@@ -44,12 +49,12 @@ img {
 }
 
 .navul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color: orange;
-    border: 1px solid #555;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   background-color: #dd9170;
+   border: 1px solid #555;
   }
   
   li a {

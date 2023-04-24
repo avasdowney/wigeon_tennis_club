@@ -27,7 +27,10 @@
     <button onclick="location.href='/account/editProfile'">Edit Profile</button>
     <a href="{% url 'deleteAccount' user.id %}">Delete</a>
 </div>
-<p>Date Joined: {{ user.date_joined.date }}</p>
+<div class="pageText">
+    <p>Date Joined: {{ user.date_joined.date }}</p>
+</div>
+
 <div class="logout">
     <button onclick="location.href='/logout/'">Log Out</button>
 </div>
