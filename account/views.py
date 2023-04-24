@@ -36,7 +36,7 @@ def reservations(request):
 def delete_reservation(request, reservation_id):
     current_reservation = view_reservations.courtReservationForm.objects.get(pk=reservation_id)
     current_reservation.delete()
-    return redirect('adminProfile')
+    return redirect('news')
 
 def delete_account(request, account_id):
     current_account = view_members.CustomUser.objects.get(pk=account_id)
