@@ -9,6 +9,11 @@ body {
     padding: 1%;
 }
 
+.bill-top-style {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  padding: 1%;
+}
+
 .main-format {
     margin-left: 5%;
     margin-right: 5%;
@@ -51,7 +56,7 @@ img {
 }
 
 /* css for signup fields */
-#id_first_name, #id_last_name, #id_address, #id_email, #id_username, #id_password1, #id_password2 {
+#id_first_name, #id_last_name, #id_address, #id_email, #id_username, #id_password1, #id_password2, #id_credit_card_number {
     width: 80%;
 }
 

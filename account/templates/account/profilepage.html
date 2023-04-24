@@ -19,15 +19,15 @@
 
 <div class="profilePic">
     <img src="{% static '/account/defaultProfilePic.jpg' %}" alt="Default Profile">
+    <p>Date Joined: {{ user.date_joined.date }}</p>
 </div>
 
 <div class="profileButtons">
     <button onclick="location.href='/account/reservations'">My Reservations</button>
-    <button onclick="location.href='/account/bills'">Pay Your Bills</button>
+    <button onclick="location.href='/members/bills/{{ request.user.pk }}'">Pay Your Bills</button>
     <button onclick="location.href='/account/editProfile'">Edit Profile</button>
     <a href="{% url 'deleteAccount' user.id %}">Delete</a>
 </div>
-<p>Date Joined: {{ user.date_joined.date }}</p>
 <div class="logout">
     <button onclick="location.href='/logout/'">Log Out</button>
 </div>
