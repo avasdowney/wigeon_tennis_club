@@ -1,0 +1,11 @@
+{% if user.is_authenticated %}
+    <h1>Reservation Failure</h1>
+    <p>Your court reservation not be processed.</p>
+    {{error_message}}
+    <br>
+    <button onclick="location.href='/news/'"> Back to News </button>
+    <button onclick="location.href='/courts/'"> Court Menu </button>
+{% else %}
+  <p>You are not logged in</p>
+  <button onclick="location.href='/login/'">Log In</button>
+{% endif %}

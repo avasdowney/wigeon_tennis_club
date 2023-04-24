@@ -5,7 +5,7 @@ body {
 .dateHeaders {
     display: flex;
     flex-wrap: nowrap;
-    background-color: rgb(58, 185, 68);
+    background-color: #EAE6DD;
 }
 
 .dateHeaders > div {
@@ -43,7 +43,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: orange;
+    background-color: #DD9170ff;
     border: 1px solid #555;
   }
   
