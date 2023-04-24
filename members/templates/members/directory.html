@@ -17,14 +17,24 @@
     {% block content %}
         {% if user_list %}
             {% for user in user_list %}
-                {% if user.is_public == True %}
-                <div class="info">
-                    <h3>{{ user.first_name }} {{ user.last_name }} </h3>
-                    <p>Age: {{user.age }}</p>
-                    <p>Phone Number: {{user.phone }}</p>
-                    <p>Email Address: {{user.email }}</p>
-                    <p>Address: {{user.address }}</p>
-                </div>
+                {% if request.user|has_group:"admin" %}
+                    <div class="info">
+                        <h3>{{ user.first_name }} {{ user.last_name }} </h3>
+                        <p>Age: {{user.age }}</p>
+                        <p>Phone Number: {{user.phone }}</p>
+                        <p>Email Address: {{user.email }}</p>
+                        <p>Address: {{user.address }}</p>
+                    </div>
+                {% else %}
+                    {% if user.is_public == True %}
+                        <div class="info">
+                            <h3>{{ user.first_name }} {{ user.last_name }} </h3>
+                            <p>Age: {{user.age }}</p>
+                            <p>Phone Number: {{user.phone }}</p>
+                            <p>Email Address: {{user.email }}</p>
+                            <p>Address: {{user.address }}</p>
+                        </div>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% else %}
