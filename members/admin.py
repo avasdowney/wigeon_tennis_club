@@ -7,7 +7,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = (
             'username', 'email', 'first_name', 'last_name', 'age',
             'phone', 'address', 'zip_code', 'total_due', 'credit_card_number', 'card_exp_date', 
-            'cvv', 'pay_online', 'is_public', 'did_pay', 'renewal', 'is_staff'
+            'cvv', 'pay_online', 'is_public', 'payment_flag', 'renewal', 'is_staff'
             )
 
     fieldsets = (
@@ -28,7 +28,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('last_login', 'date_joined')
         }),
         ('Flags', {
-            'fields': ('is_public', 'did_pay', 'renewal')
+            'fields': ('is_public', 'payment_flag', 'renewal')
         })
     )
 
@@ -50,7 +50,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('last_login', 'date_joined')
         }),
         ('Flags', {
-            'fields': ('is_public', 'did_pay', 'renewal')
+            'fields': ('is_public', 'payment_flag', 'renewal')
         })
     )
 

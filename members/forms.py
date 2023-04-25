@@ -4,9 +4,9 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django import forms
 from .models import CustomUser
 
-did_pay_choices=(
-       ("True", "Pay Online"),
-       ("False", "Pay in Person"),
+payment_flag_choices=(
+       ("False", "Pay Online"),
+       ("True", "Pay in Person"),
     )
 
 is_public_choices=(
@@ -21,11 +21,11 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
     phone = forms.IntegerField(validators = [MinValueValidator(1000000000), MaxValueValidator(9999999999)], required=True)
     address = forms.CharField(max_length=100, required=True)
-    pay_online = forms.ChoiceField(label="How would you like to pay?", choices=did_pay_choices, required=True)
+    payment_flag = forms.ChoiceField(label="How would you like to pay?", choices=payment_flag_choices, required=True)
     is_public = forms.ChoiceField(label="Would you like to join the Wigeon Tennis Club member directory?", choices=is_public_choices, required=True)
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'age', 'phone', 'address', 'email', 'username', 'password1', 'password2', 'pay_online', 'is_public')
+        fields = ('first_name', 'last_name', 'age', 'phone', 'address', 'email', 'username', 'password1', 'password2', 'payment_flag', 'is_public')
 
 
 

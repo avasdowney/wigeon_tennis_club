@@ -11,7 +11,7 @@ class CustomUser(AbstractUser):
     phone = models.IntegerField(null=True)
     is_public = models.BooleanField(default=False)
     pay_online = models.BooleanField(default=True)
-    did_pay = models.BooleanField(default=False)
+    payment_flag = models.BooleanField(default=True)
     total_due = models.DecimalField(default=1000.00, decimal_places=2, max_digits=9999)
     renewal = models.BooleanField(default=False)
     credit_card_number = models.IntegerField(validators=[MinValueValidator(1000000000000000), MaxValueValidator(9999999999999999)], null=True)
@@ -34,4 +34,4 @@ class CustomUser(AbstractUser):
         if CustomUser.objects.filter(username=self.username).exists() == False:
             super(CustomUser, self).save(*args, **kwargs)
         else:
-            CustomUser.objects.filter(pk=self.pk).update(total_due=self.total_due) 
+            CustomUser.objects.filter(pk=self.pk).update(total_due=self.total_due ) 

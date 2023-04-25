@@ -43,6 +43,12 @@ def delete_account(request, account_id):
     current_account.delete()
     return redirect('news')
 
+def flag_payment_due(request, account_id):
+    current_account = view_members.CustomUser.objects.get(pk=account_id)
+    current_account.payment_flag = True
+    current_account.save()
+    return redirect('treasurerProfile')
+
 class DirectoryView(generic.ListView):
     model = view_members.CustomUser
     context_object_name = 'user_list'
