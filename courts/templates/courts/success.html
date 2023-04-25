@@ -1,3 +1,8 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'courts/success.css' %}">
+
+<div class  = "center">
 {% if user.is_authenticated %}
     <h1>Reservation Success</h1>
     <p>Your court reservation has successfully processed.</p>
@@ -6,3 +11,4 @@
   <p>You are not logged in</p>
   <button onclick="location.href='/login/'">Log In</button>
 {% endif %}
+</div>
