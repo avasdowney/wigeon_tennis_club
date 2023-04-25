@@ -34,4 +34,4 @@ class CustomUser(AbstractUser):
         if CustomUser.objects.filter(username=self.username).exists() == False:
             super(CustomUser, self).save(*args, **kwargs)
         else:
-            CustomUser.objects.filter(pk=self.pk).update(total_due=self.total_due ) 
+            CustomUser.objects.filter(pk=self.pk).update(total_due=self.total_due, payment_flag=self.payment_flag) 
