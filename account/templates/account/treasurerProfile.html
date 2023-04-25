@@ -14,7 +14,7 @@
                 <p>Address: {{user.address }}</p>
                 <p>Flagged for Non-Payment: {{user.payment_flag}}</p>
                 <p>Amount Due: {{user.total_due}}</p>
-                <a href="{% url 'flag_payment' user.pk %}">Flag Account for Non-Payment</a>
+                <a href="{% url 'flag_payment' user.pk %}">Flag/Unflag Account for Non-Payment</a>
             {% endfor %}
         {% else %}
             <p>No users are available.</p>

@@ -21,6 +21,9 @@
             <h1> News Homepage </h1>
         </div>
         <p style="color: black;">Welcome to the news page, {{ user.first_name }}. Stay up to date with our weekly news articles!</p>
+        {% if user.payment_flag == True %}
+            <p style="color: red;"> YOU HAVE OUTSTANDING FEES TOTALLING ${{ user.total_due }}. PLEASE PAY ASAP. </p>
+        {% endif %}
     </div> 
 
     <!-- Display news stories from database reverse chronologically -->

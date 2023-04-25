@@ -60,7 +60,7 @@ class DirectoryView(generic.ListView):
     template_name = 'account/treasurerProfile.html'
 
     def get_queryset(self):
-        return view_members.CustomUser.objects.all().order_by("last_name")
+        return view_members.CustomUser.objects.all().order_by("-total_due")
 
 class ReservationView(generic.ListView):
     model = view_reservations.courtReservationForm
