@@ -20,7 +20,7 @@ def signup(request):
             login(request, user)
 
             # redirect user to home page
-            if user.pay_online == False:
+            if user.payment_flag == True:
                 return redirect('news')
             else:
                 return redirect('members:billing', pk=user.pk)
@@ -42,8 +42,9 @@ def billing(request, pk):
         if form.is_valid():
             form.save()
             user = CustomUser.objects.get(id=pk)
-            user.total_due = 0.00  # change field
-            user.save() # this will update only
+            user.payment_flag = False
+            user.total_due = 0.00
+            user.save()
             return render(request, 'members/success.html')
     form = BillingForm()
     context = {'form': form}

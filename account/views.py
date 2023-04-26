@@ -10,6 +10,7 @@ from members.models import CustomUser
 from django.views import generic
 from django.http import HttpResponse
 from .models import Bill
+from .forms import PaymentFlagForm
 # Create your views here.
 
 def account(request):
@@ -43,13 +44,23 @@ def delete_account(request, account_id):
     current_account.delete()
     return redirect('news') 
 
+def flag_payment_due(request, pk):
+    if request.method == 'GET':
+        user = view_members.CustomUser.objects.get(pk=pk)
+        if user.payment_flag == True:
+            user.payment_flag = False
+        else:
+            user.payment_flag = True
+        user.save()
+    return redirect('treasurerProfile')
+
 class DirectoryView(generic.ListView):
     model = view_members.CustomUser
     context_object_name = 'user_list'
     template_name = 'account/treasurerProfile.html'
 
     def get_queryset(self):
-        return view_members.CustomUser.objects.all().order_by("last_name")
+        return view_members.CustomUser.objects.all().order_by("-total_due")
 
 class ReservationView(generic.ListView):
     model = view_reservations.courtReservationForm

@@ -91,6 +91,18 @@ class MemberInfoTest(TestCase):
         self.assertEqual(self.child.total_due, 1000)
         self.assertEqual(self.senior.total_due, 1000)
 
+    def test_pay_bills(self):
+        self.user.total_due = 0
+        self.user.save()
+        form = BillingForm(data={'first_name' : 'test',
+                                 'last_name' : 'user',
+                                 'credit_card_number' : 1234567890123456,
+                                 'card_exp_date' : '12-01-2025',
+                                 'cvv' : 666,
+                                 'zip_code' : 12317,
+        })
+        self.assertEqual(self.user.total_due, 0)
+
 # test to ensure all signup works as expected
 class SignupTest(TestCase):    
 
@@ -105,7 +117,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
 
         self.assertTrue(form.is_valid())
@@ -121,7 +133,7 @@ class SignupTest(TestCase):
                                 'password1' : 'password',
                                 'password2' : 'password',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         form2 = SignUpForm(data={'first_name' : 'test', 
                                 'last_name' : 'user', 
@@ -133,7 +145,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'password!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
 
         self.assertFalse(form.is_valid())
@@ -148,7 +160,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form.is_valid())
 
@@ -160,7 +172,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form2.is_valid())
 
@@ -172,7 +184,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form3.is_valid())
 
@@ -184,7 +196,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form4.is_valid())
 
@@ -196,7 +208,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form5.is_valid())
 
@@ -208,7 +220,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form6.is_valid())
 
@@ -220,7 +232,7 @@ class SignupTest(TestCase):
                                 'username' : 'test_user', 
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form7.is_valid())
 
@@ -247,7 +259,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
 
         self.assertFalse(form.is_valid())
@@ -263,7 +275,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form.is_valid())
 
@@ -277,7 +289,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form2.is_valid())
 
@@ -291,7 +303,7 @@ class SignupTest(TestCase):
                                 'password1' : 'Top_secret123!',
                                 'password2' : 'Top_secret123!',
                                 'is_public' : True, 
-                                'pay_online' : True
+                                'payment_flag' : False
         })
         self.assertFalse(form3.is_valid())
 
