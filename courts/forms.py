@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import *
+from django.core.exceptions import ValidationError
 
 class ReservationForm(ModelForm):
     class Meta:
@@ -23,3 +24,19 @@ class ReservationForm(ModelForm):
             'guest4LName': ("Guest 4's Last Name")
         }
 
+class TournamentForm(ModelForm):
+    class Meta:
+        model = tournamentForm
+        fields = '__all__'
+        labels={
+            'tournyTime' : ("Tournament Time"),
+            'tournyDate' : ("Tournament Date YYY-MM-DD"),
+            'team1' : ("Team 1's Name"),
+            'team2' : ("Team 2's Name"),
+            'court1' : ("Court for Double's Match 1 "),
+            'court2' : ("Court for Double's Match 2 "),
+            'court3' : ("Court for Double's Match 3 "),
+            'court4' : ("Court for Single's Match 1 "),
+            'court5' : ("Court for Single's Match 2 ")
+
+        } 
