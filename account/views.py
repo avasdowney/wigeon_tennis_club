@@ -18,7 +18,7 @@ def account(request):
 
 def editProfile(request):
     current_user = view_members.CustomUser.objects.get(id=request.user.id)
-    form = member_forms.SignUpForm(request.POST or None, instance=current_user)
+    form = member_forms.SignUpForm(request.POST or None, instance= current_user)
     if form.is_valid():
         form.save()
         login(request, current_user)
@@ -76,7 +76,7 @@ class MyReservationView(generic.ListView):
     template_name = 'account/reservations.html'
 
     def get_queryset(self):
-        return view_reservations.courtReservationForm.objects.all().filter(guest1FName= 'Ava')
+        return view_reservations.courtReservationForm.objects.all().filter(guest1EMail= self.request.user.email) | view_reservations.courtReservationForm.objects.all().filter(guest2EMail= self.request.user.email) | view_reservations.courtReservationForm.objects.all().filter(guest3EMail= self.request.user.email) | view_reservations.courtReservationForm.objects.all().filter(guest4EMail= self.request.user.email)
     
 class BillView(generic.ListView):
     model = Bill
