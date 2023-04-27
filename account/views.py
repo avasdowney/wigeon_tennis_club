@@ -47,10 +47,10 @@ def delete_account(request, account_id):
 def flag_payment_due(request, pk):
     if request.method == 'GET':
         user = view_members.CustomUser.objects.get(pk=pk)
-        if user.payment_flag == True:
-            user.payment_flag = False
-        else:
+        if user.payment_flag == False and (user.total_due > 0.00):
             user.payment_flag = True
+        else:
+            user.payment_flag = False
         user.save()
     return redirect('treasurerProfile')
 
