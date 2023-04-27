@@ -17,13 +17,14 @@ def account(request):
     return render(request, 'account/profilepage.html')
 
 def editProfile(request):
-    current_user = view_members.CustomUser.objects.get(id=request.user.id)
-    form = member_forms.SignUpForm(request.POST or None, instance= current_user)
-    if form.is_valid():
-        form.save()
-        login(request, current_user)
-        return render(request, 'account/updateSuccess.html')
-    return render(request, 'account/editProfile.html', {'form':form})
+    # current_user = view_members.CustomUser.objects.get(id=request.user.id)
+    # form = member_forms.SignUpForm(request.POST or None, instance= current_user)
+    # if form.is_valid():
+    #     form.save()
+    #     login(request, current_user)
+    #     return render(request, 'account/updateSuccess.html')
+    # return render(request, 'account/editProfile.html', {'form':form})
+    return render(request, 'account/editProfile.html')
 
 def adminProfile(request):
     return render(request, 'account/adminProfile.html')

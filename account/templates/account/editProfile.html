@@ -1,12 +1,16 @@
-<h1>Edit Profile</h1>
-<!-- <div>
+{% load static %}
+{% load custom_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
+<div class="main">
+    <h1>Profile</h1>
     <p>Name: {{ user.first_name }} {{ user.last_name }} </p>
     <p>Age: {{user.age }}</p>
     <p>Phone Number: {{user.phone }}</p>
     <p>Email Address: {{user.email }}</p>
     <p>Address: {{user.address }}</p>
-</div> -->
-<div class="column">
+    <button onclick="location.href='/account/'">Back to Account</button>
+</div>
+<!-- <div class="column">
     <form method="post">
       {% csrf_token %}
       {% for field in form %}
@@ -24,4 +28,4 @@
       {% endfor %}
       <button type="submit">Update Profile</button> &nbsp;
     </form>
-  </div>
+  </div> -->
