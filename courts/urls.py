@@ -10,6 +10,8 @@ urlpatterns = [
     path('5', views.menu5, name='date5'),
     path('6', views.menu6, name='date6'),
     path('7', views.menu7, name='date7'),
+    
+    path('tournament/', views.tournament, name='tournamnent'),
 
     #Day 1
     #Court 1
