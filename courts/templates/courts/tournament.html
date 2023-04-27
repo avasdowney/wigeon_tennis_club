@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'courts/reservationform.css' %}">
+
+{% if user.is_authenticated %}
+    <h1>Tennis Tournament Form</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+{% else %}
+    <p>You are not logged in</p>
+    <button onclick="location.href='/login/'">Log In</button>
+{% endif %}
+ 

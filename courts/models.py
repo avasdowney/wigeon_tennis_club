@@ -48,3 +48,34 @@ class courtReservationForm(models.Model):
     guest4EMail = models.EmailField(max_length=254, blank = True)
     guest4FName = models.CharField(max_length=100, blank = True)
     guest4LName = models.CharField(max_length=100, blank = True)
+
+class tournamentForm(models.Model):
+    tournyDate = models.DateField()
+    tournyTime = models.CharField(
+        max_length = 20,
+        choices = timeBlocks,
+        blank = False,
+        )
+    team1 = models.CharField(max_length=100, blank = False)
+    team2 = models.CharField(max_length=100, blank = False)
+    court1 = models.IntegerField(
+        choices = courtNumber,
+        blank = False,
+    )
+    court2 = models.IntegerField(
+        choices = courtNumber,
+        blank = False,
+    )
+    court3 = models.IntegerField(
+        choices = courtNumber,
+        blank = False,
+    )
+    court4 = models.IntegerField(
+        choices = courtNumber,
+        blank = False,
+    )
+    court5 = models.IntegerField(
+        choices = courtNumber,
+        blank = False,
+    )
+ 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import ReservationForm
-from .models import courtReservationForm
+from .forms import *
+from .models import *
 from datetime import datetime, timedelta
 from members.models import CustomUser
 from django.http import HttpResponse
@@ -2439,6 +2439,73 @@ def menu7(request):
                'date5Disp':date5Disp,'date6Disp':date6Disp,'date7Disp':date7Disp
                }
     return render(request, 'courts/menu7.html',context)
+
+def tournament(request):
+    date1 = datetime.now()
+    date2 = (datetime.now()+timedelta(1))
+    date3 = (datetime.now()+timedelta(2))
+    date4 = (datetime.now()+timedelta(3))
+    date5 = (datetime.now()+timedelta(4))
+    date6 = (datetime.now()+timedelta(5))
+    date7 = (datetime.now()+timedelta(6))
+
+    date1Disp = date1.strftime("%b. %d, %Y")
+    date2Disp = date2.strftime("%b. %d, %Y")
+    date3Disp = date3.strftime("%b. %d, %Y")
+    date4Disp = date4.strftime("%b. %d, %Y")
+    date5Disp = date5.strftime("%b. %d, %Y")
+    date6Disp = date6.strftime("%b. %d, %Y")
+    date7Disp = date7.strftime("%b. %d, %Y")
+
+    if request.method == 'POST':
+        form = TournamentForm(request.POST)
+        if form.is_valid():
+            c1 = form.cleaned_data['court1']
+            c2 = form.cleaned_data['court2']
+            c3 = form.cleaned_data['court3']
+            c4 = form.cleaned_data['court4']
+            c5 = form.cleaned_data['court5']
+            court_list = [c1,c2,c3,c4,c5]
+            if(len(set(court_list)) == len(court_list)):
+                if courtReservationForm.objects.filter(courtNumber = c1, courtDate = form.cleaned_data['tournyDate'], courtTime = form.cleaned_data['tournyTime']).exists():
+                    error_message = "Court " + str(c1) + " has already been reserved. Please pick a different court."
+                    context = {'error_message': error_message}
+                    return render(request, 'courts/failure.html', context)
+                if courtReservationForm.objects.filter(courtNumber = c2, courtDate = form.cleaned_data['tournyDate'], courtTime = form.cleaned_data['tournyTime']).exists():
+                    error_message = "Court " + str(c2) + " has already been reserved. Please pick a different court."
+                    context = {'error_message': error_message}
+                    return render(request, 'courts/failure.html', context)
+                if courtReservationForm.objects.filter(courtNumber = c3, courtDate = form.cleaned_data['tournyDate'], courtTime = form.cleaned_data['tournyTime']).exists():
+                    error_message = "Court " + str(c3) + " has already been reserved. Please pick a different court."
+                    context = {'error_message': error_message}
+                    return render(request, 'courts/failure.html', context)
+                if courtReservationForm.objects.filter(courtNumber = c4, courtDate = form.cleaned_data['tournyDate'], courtTime = form.cleaned_data['tournyTime']).exists():
+                    error_message = "Court " + str(c4) + " has already been reserved. Please pick a different court."
+                    context = {'error_message': error_message}
+                    return render(request, 'courts/failure.html', context)
+                if courtReservationForm.objects.filter(courtNumber = c5, courtDate = form.cleaned_data['tournyDate'], courtTime = form.cleaned_data['tournyTime']).exists():
+                    error_message = "Court " + str(c5) + " has already been reserved. Please pick a different court."
+                    context = {'error_message': error_message}
+                    return render(request, 'courts/failure.html', context)
+                else:
+                    for i in range (5):
+                        court_reservation = courtReservationForm()
+                        court_reservation.courtDate=form.cleaned_data['tournyDate']
+                        court_reservation.courtTime = form.cleaned_data['tournyTime']
+                        court_reservation.guest1FName = form.cleaned_data['team1']
+                        court_reservation.guest2FName = form.cleaned_data['team2']
+                        court_reservation.courtNumber = form.cleaned_data['court{}'.format(i+1)]
+                        court_reservation.save()
+            else:
+                error_message = "Please make sure that all of the matches are held on unique courts."
+                context = {'error_message': error_message}
+                return render(request, 'courts/failure.html', context)
+        context = {'date1' :date1, 'date2':date2, 'date3':date3, 'date4':date4, 'date5':date5, 'date6':date6, 'date7':date7,
+            'date1Disp':date1Disp, 'date2Disp':date2Disp,'date3Disp':date3Disp,'date4Disp':date4Disp,'date5Disp':date5Disp,'date6Disp':date6Disp,'date7Disp':date7Disp}
+        return render(request, 'courts/tournysuccess.html', context)
+    form = TournamentForm()
+    context = {'form': form}
+    return render(request, 'courts/tournament.html', context)
 
 #court 1
 def d1c1t1(request):

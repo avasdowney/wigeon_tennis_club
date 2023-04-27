@@ -4,6 +4,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'account/styles.css' %}">
 <div class="main">
     {% block content %}
+    <div class="adminButtons">
+        <button onclick="location.href='/news/add_news/'">Add News Story</button>
+        <button onclick="location.href='/directory/'">View Members</button>
+        <button onclick="location.href='/courts/tournament/'">Schedule a Tournament</button>
+    </div>
         {% if reservation_list %}
             {% for reservation in reservation_list %}
                 <h3>Court: {{ reservation.courtNumber}} </h3>
@@ -28,9 +33,4 @@
         <li><a href="/courts/">Court Reservation</a></li>
         <li><a href="/account/adminProfile">Admin Account</a></li>
       </ul>
-</div>
-
-<div class="adminButtons">
-    <button onclick="location.href='/news/add_news/'">Add News Story</button>
-    <button onclick="location.href='/directory/'">View Members</button>
 </div>
